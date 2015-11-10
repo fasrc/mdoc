@@ -1,2 +1,2 @@
 # mdoc
-Markdown docs
+Markdown docs for the RC website.
