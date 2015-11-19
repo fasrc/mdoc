@@ -1,12 +1,25 @@
 Title: Access and Login
 Date: 2015-11-10
-Category: Guides
-Tags: Odyssey, access
+Category: guides
+Tags: Odyssey, Access
 Summary: This guide will provide you with details about how to access the Odyssey system, including ssh, directory mounts, and NX.
 
 ### Odyssey access requires an RC account
 
-Odyssey resources (storage, software downloads, special workstations, instrumentation scheduling, etc.) can be accessed through a number of paths (see below), but all require an RC account. An account can be requested through the [account request web application](https://account.rc.fas.harvard.edu/request/). On the "Services" page, select Odyssey Cluster Use. [![Account request page](/wp-content/uploads/2014/02/account_request_user_info.png)](/wp-content/uploads/2014/02/account_request_user_info.png) [caption id="" align="alignnone" width="1316"][![Check Odyssey Cluster Use to access Odyssey resources](/wp-content/uploads/2014/02/account_request_odyssey_check.png)](/wp-content/uploads/2014/02/account_request_odyssey_check.png) Check Odyssey Cluster Use to access Odyssey resources[/caption] We aim to generate accounts inside ONE business day. Some times there are external factors that may increase or delay this turn around. For example your PI may not available to approve your status, there is a technical issue in validating your status, or other issues beyond our control. If you don't hear from us inside one business day and you are sure your PI has approved the account, please feel free to escalate directly to our operations manager [Brian White](mailto:brian_white@harvard.edu) so he can investigate. The password that you've set in the account request application will be the password you use to access Odyssey resources. If you later forget the password, you can reset it using the [password reset application](https://account.rc.fas.harvard.edu/password_reset/). **NOTE!** You are required to attend the [Introduction to Odyssey course](https://rc.fas.harvard.edu/education/training/intro-to-odyssey/) within 45 days of your account issue; otherwise your account will automatically expire.
+Odyssey resources (storage, software downloads, special workstations, instrumentation scheduling, etc.) can be accessed through a number of paths (see below), but all require an RC account. An account can be requested through the [account request web application](account_request>). On the "Services" page, select Odyssey Cluster Use. 
+
+<div class="img">
+	<a class="img" href="/images/account-request-first-page.png">
+    		<img src="/images/account-request-first-page.png"></img>
+	</a>
+    <div class="caption">Account request page.</div>
+</div>
+
+[![Check Odyssey Cluster Use to access Odyssey resources](/wp-content/uploads/2014/02/account_request_odyssey_check.png)](/wp-content/uploads/2014/02/account_request_odyssey_check.png) Check Odyssey Cluster Use to access Odyssey resources[/caption] 
+
+We aim to generate accounts inside ONE business day. Sometimes there are external factors that may increase or delay this turn around. For example your PI may not available to approve your status, there is a technical issue in validating your status, or other issues beyond our control. If you don't hear from us inside one business day and you are sure your PI has approved the account, please feel free to escalate directly to our operations manager [Brian White](mailto:brian_white@harvard.edu) so he can investigate. The password that you've set in the account request application will be the password you use to access Odyssey resources. If you later forget the password, you can reset it using the [password reset application](password_reset>). 
+
+**NOTE! You are required to attend the [Introduction to Odyssey course](https://rc.fas.harvard.edu/education/training/intro-to-odyssey/) within 45 days of your account issue; otherwise your account will automatically expire.** 
 
 ### Odyssey access requires the OpenAuth tool for two factor authentication
 

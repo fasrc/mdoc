@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import os
 
 PLUGIN_PATHS = ['../pelican-plugins/']
-PLUGINS = ['tag_cloud.tag_cloud',]
+PLUGINS = ['tag_cloud.tag_cloud','interlinks']
 
 AUTHOR = u'Aaron Kitzmiller'
 SITENAME = u'Harvard FAS Research Computing'
@@ -14,6 +14,7 @@ PATH = 'content'
 BANNER = True
 BANNER_ALL_PAGES = False
 DISPLAY_PAGES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = True
 
 TIMEZONE = 'America/New_York'
 
@@ -53,3 +54,21 @@ DEFAULT_PAGINATION = 10
 RELATIVE_URLS = True
 
 STATIC_PATHS = ['images']
+
+
+# Common URLs
+INTERLINKS = {
+    'account_request': 'https://account.rc.fas.harvard.edu/request/',
+    'password_reset': 'https://account.rc.fas.harvard.edu/password_reset/',
+    'openauth': 'https://software.rc.fas.harvard.edu/oa/',
+    'module_list': 'https://portal.rc.fas.harvard.edu/apps/modules',
+    'slurm': 'http://slurm.schedmd.com/',
+    'rc_site': 'https://rc.fas.harvard.edu/',
+    'informatics_site': 'http://informatics.fas.harvard.edu/',
+    'rchelp' : 'https://portal.rc.fas.harvard.edu/rcrt/submit_ticket',
+}
+
+MENUITEMS = [
+    ('RC Docs','/'),
+]
+

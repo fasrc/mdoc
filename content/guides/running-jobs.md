@@ -1,6 +1,6 @@
 Title: Running Jobs
 Date: 2015-11-10
-Category: Guides
+Category: guides
 Tags: Odyssey, Slurm
 Summary: This guide will provide you with details about how to run Slurm jobs on the Odyssey cluster.
 
