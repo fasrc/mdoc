@@ -139,7 +139,8 @@ You will need to install the noMachine client to use NX. The NX/noMachine softwa
 
 These screen shots show NX on a Mac. PC software is very similar and the same choices should be made.
 
-1.  _Make sure you are connected to the **RC VPN (vpn.rc.fas.harvard.edu)**_ The rcnx01 and holynx01 servers are not accessible from outside of the RC VPN. In particular, you cannot access them from the FAS VPN (vpn.fas.harvard.edu). If you're unsure how to connect to our VPN, see [VPN Setup](/resources/vpn-setup/)
+1.  ***Make sure you are connected to the RC VPN (vpn.rc.fas.harvard.edu)***<br/> 
+    The rcnx01 and holynx01 servers are not accessible from outside of the RC VPN. In particular, you cannot access them from the FAS VPN (vpn.fas.harvard.edu). If you're unsure how to connect to our VPN, see [VPN Setup](/resources/vpn-setup/)
     <figure>
 	    <a class="img" href="/images/connect-to-rc-vpn.png">
     		    <img class="img-temp" src="/images/connect-to-rc-vpn.png"></img>
