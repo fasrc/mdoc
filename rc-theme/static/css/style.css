@@ -19,6 +19,9 @@ html {
 body {
   margin: 0; }
 
+img {
+	max-width: 900px;
+}
 article,
 aside,
 details,
@@ -279,7 +282,7 @@ html {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.42857;
   color: #333333;
   background-color: #fff; }
@@ -3252,33 +3255,6 @@ tbody.collapse.in {
     background-color: #fff;
     cursor: not-allowed; }
 
-.jumbotron {
-  padding: 30px 15px;
-  margin-bottom: 30px;
-  color: inherit;
-  background-color: #eeeeee; }
-  .jumbotron h1,
-  .jumbotron .h1 {
-    color: inherit; }
-  .jumbotron p {
-    margin-bottom: 15px;
-    font-size: 21px;
-    font-weight: 200; }
-  .jumbotron > hr {
-    border-top-color: #d5d5d5; }
-  .container .jumbotron, .container-fluid .jumbotron {
-    border-radius: 6px; }
-  .jumbotron .container {
-    max-width: 100%; }
-  @media screen and (min-width: 769px) {
-    .jumbotron {
-      padding: 48px 0; }
-      .container .jumbotron, .container-fluid .jumbotron {
-        padding-left: 60px;
-        padding-right: 60px; }
-      .jumbotron h1,
-      .jumbotron .h1 {
-        font-size: 63px; } }
 
 .thumbnail {
   display: block;
@@ -3958,9 +3934,6 @@ pre {
 blockquote {
   border-left-color: #ccc; }
 
-img {
-  max-width: 100%;
-  height: auto; }
 
 table {
   width: 100%;
@@ -4105,54 +4078,6 @@ input, textarea {
         #menu-social ul li a[href*="/feed"]:before {
           content: '\f09e'; }
 
-/* =Jumbotron
--------------------------------------------------------------- */
-.jumbotron {
-  color: #222; }
-
-.home-jumbotron {
-  position: relative;
-  text-align: center;
-  background-color: transparent;
-  padding: 50px 15px;
-  margin-bottom: 40px; }
-  .home-jumbotron h1 {
-    font-size: 96px; }
-    @media (max-width: 992px) {
-      .home-jumbotron h1 {
-        font-size: 72px; } }
-    @media (max-width: 768px) {
-      .home-jumbotron h1 {
-        font-size: 48px; } }
-    @media (max-width: 480px) {
-      .home-jumbotron h1 {
-        font-size: 40px; } }
-  .home-jumbotron .lead {
-    z-index: 20;
-    position: relative;
-    font-size: 24px; }
-    @media (max-width: 768px) {
-      .home-jumbotron .lead {
-        font-size: 20px; } }
-    @media (max-width: 480px) {
-      .home-jumbotron .lead {
-        font-size: 18px; } }
-  .home-jumbotron .middle-circle {
-    -moz-border-radius: 80px;
-    -webkit-border-radius: 80px;
-    border-radius: 80px;
-    background: #fff;
-    font-size: 60px;
-    height: 120px;
-    width: 120px;
-    line-height: 140px;
-    position: absolute;
-    left: 50%;
-    margin-left: -60px;
-    bottom: -90px;
-    z-index: 10; }
-    .basic .home-jumbotron .middle-circle {
-      color: #D9534F; }
 
 /* =Home Widgets
 -------------------------------------------------------------- */
@@ -5399,7 +5324,6 @@ background: #fff;
 }
 
 img {
-max-width: 25%;
 height: auto;
 }
 
@@ -5511,7 +5435,7 @@ line-height: .5em;
 }
 
 .entry-content {
-  font-size: 15.5px;
+  font-size: 18px;
   line-height: 1.6em;
 }
 
@@ -5524,7 +5448,7 @@ pre {
 }
 
 img {
-max-width: 100%;
+/* max-width: 100%;*/
 }
 
 .VS-search .VS-search-box {
@@ -5671,27 +5595,23 @@ dt {
 	font-family: 'Droid Sans Mono', 'Courier New', monospace;
 }
 
-div.img {
-	overflow: auto;
-	margin: 2em;
-}
 a.img {
 	text-decoration: none;
 	color: inherit;
-	width: 100%;
-	margin-left: 10%;
-	margin-right: 10%;
+	max-width: 800px;
+	margin: auto;
 }
 
-a.img > img {
-	width: 900px;
-	align: center;
+figure {
+	margin: 1em;
+	width: 100%;
 }
-.caption {
-	text-align: center;
+figcaption {
+	margin: auto;
 	width: 100%;
 	font-style: italic;
 	color: #999;
+	display: none;
 }
 
 /* Creative commons license block */

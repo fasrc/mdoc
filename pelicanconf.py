@@ -61,6 +61,7 @@ INTERLINKS = {
     'account_request': 'https://account.rc.fas.harvard.edu/request/',
     'password_reset': 'https://account.rc.fas.harvard.edu/password_reset/',
     'openauth': 'https://software.rc.fas.harvard.edu/oa/',
+    'revoke': 'https://software.rc.fas.harvard.edu/oa/revoke/',
     'module_list': 'https://portal.rc.fas.harvard.edu/apps/modules',
     'slurm': 'http://slurm.schedmd.com/',
     'rc_site': 'https://rc.fas.harvard.edu/',
