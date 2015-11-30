@@ -5625,3 +5625,7 @@ p.cc-block {
     color: #000000;
     background-color: #f2f2f2;
 }
+
+h4 {
+	font-style: italic;
+}
