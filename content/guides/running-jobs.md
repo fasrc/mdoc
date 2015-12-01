@@ -51,14 +51,7 @@ For many applications, a `module load` command enables a particular application 
 </figure>
 
 
-Loading more complex modules can affect a number of environment variables including `PYTHONPATH`, `LD_LIBRARY_PATH`, `PERL5LIB`, etc. Modules may also load dependencies. An application that uses Java may load the module for the appropriate Java interpreter. The `module list` command will show what is in your environment.
-
-<figure>
-	<a class="img" href="/images/module-load-trinityrnaseq.png">
-    		<img class="img-temp" src="/images/module-load-trinityrnaseq.png"></img>
-	</a>
-    <figcaption>Load of module trinityrnaseq and changes to the environment.</figcaption>
-</figure>
+Loading more complex modules can affect a number of environment variables including `PYTHONPATH`, `LD_LIBRARY_PATH`, `PERL5LIB`, etc. Modules may also load dependencies. 
 
 The `module purge` command will remove all currently loaded modules. This is particularly useful if you have to run incompatible software (e.g. python 2.x or python 3.x). The `module unload` command will remove a specific module. 
 
