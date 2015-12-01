@@ -55,13 +55,6 @@ More than just the module name and application description is retrieved by a por
 
 Some applications or libraries may be a part of a larger package.  For example, the [Numpy](http://www.numpy.org/) Python package is made available when the Anaconda module is loaded.  A search for this package will match the [Anaconda](https://www.continuum.io/why-anaconda) module due to the package listing in the description.
 
-<figure>
-	<a class="img" href="/images/module-search-page-numpy.png">
-    		<img class="img-temp" src="/images/module-search-page-numpy.png"></img>
-	</a>
-    <figcaption>Portal search for numpy returns the Anaconda module.</figcaption>
-</figure>
-
 There are a number of application types that are best installed in user home directories and so may not be available as modules on Odyssey.  Applications delivered as Java jar files or pure Python applications are generally in this category.  Some of these applications may be returned when searching the module list, though, along with instructions to help with local user installation.
 
 <figure>
@@ -149,12 +142,6 @@ Tab-completion can be helpful when loading modules using the application name.  
 
 Individual modules can be unloaded with the `module unload` command (tab completion works here as well) and your entire environment can be reset with the `module purge` command.
 
-<figure>
-	<a class="img" href="/images/module-unload-purge.png">
-    		<img class="img-temp" src="/images/module-unload-purge.png"></img>
-	</a>
-    <figcaption>Remove modules from your environment.</figcaption>
-</figure>
 
 ### Compiler-dependent (Comp) and MPI-dependent (MPI) modules are not available until the compiler or library is loaded.
 It is common within large, shared academic clusters to find applications built with multiple compiler versions and MPI libraries.  Intel compilers and MPI libraries, for example, can take better advantage of CPU instruction sets, providing significant performance boosts to computationally-intensive tools.  However, Intel compilers can fail to properly build other applications that are developed with the far more common gcc compilers.  Loading modules built with different compilers can often lead to errors that are difficult to diagnose.
@@ -186,11 +173,95 @@ MPI-dependent applications are enabled in a similar way, but, because MPI librar
 When modules are built in RC, the application name usually follows the name of the distribution package to ensure that the build process is as smooth as possible.  Sometimes, the distribution name (e.g. jdk) is not how the package is commonly known (java).  For the more common cases, alias packages are created that simply load another package using a different name.
 
 ## Python should be used within an Anaconda environment
+Python is an extremely popular interpreted programming language that has an array of excellent packages for scientific computing.  It is not uncommon to see module systems on academic clusters provide some of the major Python packages like scipy and numpy.  However, in our experience, this leads to complex `PYTHONPATH`s that, especially without Helmod version resolution, can create incompatible environments.
 
-## Graphical applications can be run from within a NoMachine desktop
+Use of the [Anaconda](http://docs.continuum.io/anaconda/index) distribution from Continuum Analytics makes local control of Python package sets much easier.  In addition to a large set of pre-installed packages, it is easy to create a local environment in your home directory and use that to define your environment.
+
+You can use Python and Anaconda on Odyssey by running:
+
+    module load python/2.7.6-fasrc01
+    
+(as of this writing, 2.7.6 is the Odyssey Python default).  Loading this python module will load the 1.9.2 version of the Anaconda distribution.
+
+Anaconda has a concept of *environments* that can be used to manage alternative package sets and versions.  This analogous to the environments that can be setup with [virtualenv](https://pypi.python.org/pypi/virtualenv). For example, if you want newer versions of some packages in the default environment, you can make a new environment with your customizations.
+
+First, load the base environment:
+
+    :::shell-session
+    $ module load python/2.7.6-fasrc01
+
+Then create a new environment by cloning the Anaconda distribution (substitute `ENV_NAME` with whatever name you wish):
+
+    :::shell-session
+    $ conda create -n ENV_NAME --clone="$PYTHON_HOME"
+
+This will create a clone in your home directory under `~/envs/ENV_NAME`.  
+
+Use this environment by running the command:
+
+    :::shell-session
+    $ source activate ENV_NAME
+
+
+If you want to use this environment all the time, add the above line to your `~/.bashrc` (or other appropriate shell config file) after the line that loads the module.
+
+To stop using the custom environment, run:
+
+    :::shell-session
+    $ source deactivate
+
+A Python 3 module is available as well via the Anaconda3 distribution.  The Anaconda system allows you to alter your environment to setup a [specific version of Python](http://conda.pydata.org/docs/py2or3.html#install-a-different-version-of-python) very easily.
+
+For more details on installing and updating Anaconda packages within the Odyssey environment, see the [Python on Odyssey]({filename}/python-on-odyssey.html) page.
+
+## Local package installs should be done for Perl, R, etc.
+The Odyssey support model for interpreted languages like Perl and R is similar to that of Python.  We provide the interpreter and a base install of common packages via a module, but then encourage local installs of additional packages.  This reduces the size of the software install burden and allows users to tailor their environment according to their specific needs.
+
+For more information on local installation of packages, see the relevant documentation page.
+
+* [Perl]({filename}/perl-on-odyssey.html)
+* [R]({filename}/r-on-odyssey.html)
+
+The [Software category page]({filename}/category/software.html) may also be of some assistance.
+
+
+## Java applications are easy to run
+Most Java applications are distributed as jar files with few if any external libraries.  As a result, most can be downloaded and run directly assuming you have loaded the correct jdk / java interpreter.
+
+    [akitzmiller@builds ~]$ wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.35.zip
+    --2015-11-23 12:12:16--  http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.35.zip
+    Resolving www.usadellab.org... 199.195.142.183
+    Connecting to www.usadellab.org|199.195.142.183|:80... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 129810 (127K) [application/zip]
+    Saving to: “Trimmomatic-0.35.zip”
+    
+    100%[=========================================================================================>] 129,810      438K/s   in 0.3s    
+    
+    2015-11-23 12:12:16 (438 KB/s) - “Trimmomatic-0.35.zip” saved [129810/129810]
+    
+    
+    [akitzmiller@builds ~]$ unzip Trimmomatic-0.35.zip 
+    Archive:  Trimmomatic-0.35.zip
+       creating: Trimmomatic-0.35/
+      inflating: Trimmomatic-0.35/LICENSE  
+      inflating: Trimmomatic-0.35/trimmomatic-0.35.jar  
+       creating: Trimmomatic-0.35/adapters/
+      inflating: Trimmomatic-0.35/adapters/NexteraPE-PE.fa  
+      inflating: Trimmomatic-0.35/adapters/TruSeq2-PE.fa  
+      inflating: Trimmomatic-0.35/adapters/TruSeq2-SE.fa  
+      inflating: Trimmomatic-0.35/adapters/TruSeq3-PE-2.fa  
+      inflating: Trimmomatic-0.35/adapters/TruSeq3-PE.fa  
+      inflating: Trimmomatic-0.35/adapters/TruSeq3-SE.fa  
+    
+    [akitzmiller@builds ~]$ java -jar ~/Trimmomatic-0.35/trimmomatic-0.35.jar 
+    Usage: 
+           PE [-threads <threads>] [-phred33|-phred64] [-trimlog <trimLogFile>] [-quiet] [-validatePairs] [-basein <inputBase> | <inputFile1> <inputFile2>] [-baseout <outputBase> | <outputFile1P> <outputFile1U> <outputFile2P> <outputFile2U>] <trimmer1>...
+       or: 
+           SE [-threads <threads>] [-phred33|-phred64] [-trimlog <trimLogFile>] [-quiet] <inputFile> <outputFile> <trimmer1>...
+    
 
 ## GPUs can be used via CUDA libraries
 
-## Java applications are easy to run
 
 
