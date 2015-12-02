@@ -33,12 +33,21 @@ where &lt;USERNAME&gt; is the RC login you received from the [account request to
 
 Odyssey computers run the CentOS 6.5 version of the Linux operating system and commands are run under the "bash" shell. There are a number of Linux and bash [references](http://www.gnu.org/software/bash/manual/bashref.html), [cheat sheets](http://cli.learncodethehardway.org/bash_cheat_sheet.pdf) and [tutorials](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/) available on the web. RC's own [training](https://rc.fas.harvard.edu/training/intro-to-unix/) are also available. 
 
+## Odyssey applications should not be run from login nodes
+Once you have logged in to the Odyssey system, you will be on one of a handful of access nodes (e.g. rclogin04).  These nodes are shared entry points for all users and so cannot be used to run computationally intensive software.  
+
+Simple file copies, light text processing or editing, etc. are fine, but you should not run large graphical applications like Matlab, or computationally intensive command line tools.c
+A culling program runs on these nodes that will kill any application that exceeds memory and computational limits.
+
+Entry nodes for NoMachine remote desktops (see below) like holynx01 are also to be treated like login nodes.
+
+
 ## An enhanced module system called Helmod is used for enabling applications 
 Because of the diversity of investigations currently supported by FAS, thousands of applications and libraries are supported on the Odyssey cluster. Technically, it is impossible to include all of these tools in every user's environment. 
 
-In many academic clusters, the Linux [module system](http://modules.sourceforge.net) is used to enable subsets of these tools for a particular user's computational needs.  Unfortunately, modern computational environments, especially in biological investigations, can contain many conflicting tools and libraries.  To address this, RC has developed [Helmod]({filename}/helmod.html), an enhancement of the hierarchical [Lmod module system from TACC](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod).  Helmod prevents multiple versions of the same tool from being loaded at the same time (see below about 'wiggle room') and separates tools that use particular compilers or MPI libraries entirely.
+The Research Computing and Informatics departments have developed an enhanced Linux [module system](http://modules.sourceforge.net), [Helmod]({filename}/helmod.html), based on the hierarchical [Lmod module system from TACC](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod).  Helmod prevents enables applications much the same way as Linux modules, but also prevents multiple versions of the same tool from being loaded at the same time and separates tools that use particular compilers or MPI libraries entirely.
 
-For many applications, a `module load` command enables a particular application in the environment, mainly by adding the application to your PATH variable. For example, to enable the currently supported R package:
+A `module load` command enables a particular application in the environment, mainly by adding the application to your PATH variable. For example, to enable the currently supported R package:
 
     :::shell-session
     module load R/3.2.0-fasrc01
@@ -55,9 +64,9 @@ Loading more complex modules can affect a number of environment variables includ
 
 The `module purge` command will remove all currently loaded modules. This is particularly useful if you have to run incompatible software (e.g. python 2.x or python 3.x). The `module unload` command will remove a specific module. 
 
-Finding the modules that are appropriate for your needs can be done in a couple of different ways. The [module search page](https://portal.rc.fas.harvard.edu/apps/modulelist/) allows you to browse and search the list of modules that have been deployed to Odyssey. All modules that match a search term, or include it in their definition (e.g. as a dependency) will be retrieved.
+Finding the modules that are appropriate for your needs can be done in a couple of different ways. The [module search page](https://portal.rc.fas.harvard.edu/apps/modulelist/) allows you to browse and search the list of modules that have been deployed to Odyssey. 
 
-There are a number of command line options for module searching.  The `module avail` command is a useful tool for browsing the entire list of applications.  
+There are a number of command line options for module searching, including the `module avail` command for browsing the entire list of applications and the `module-query` command for keyword searching.
 
 Though there are many modules available by default, the hierarchical Helmod system enables additional modules after loading certain key libraries such as compilers and MPI packages.  The `module avail` command output reflects this.
 
@@ -68,8 +77,6 @@ Though there are many modules available by default, the hierarchical Helmod syst
     <figcaption>View the available modules after loading a compiler.</figcaption>
 </figure>
 
-The official command line query tool is `module spider`.  This tool can only query module names or partial module names, but indexes all of the Helmod deployment as well as legacy modules.
-
 The Helmod `module-query` command supports more sophisticated queries and returns additional information for modules.  If you query by the name of an application or library (e.g. hdf5), you'll retrieve a consolidated report showing all of the modules grouped together for a particular application.
 
 <figure>
@@ -77,9 +84,8 @@ The Helmod `module-query` command supports more sophisticated queries and return
     		<img class="img-temp" src="/images/module-query-hdf5.png"></img>
 	</a>
     <figcaption>module-query for hdf5.</figcaption>
-</figure>
+</figure> 
 
- 
 A query for a single module, however, will return details about that build including module load statements and build comments (if any exist).
 
 <figure>
@@ -89,10 +95,11 @@ A query for a single module, however, will return details about that build inclu
     <figcaption>module-query for hdf5/1.8.12.</figcaption>
 </figure>
 
+For more details about the Helmod module system, check out the [Software on Odyssey]({filename}/software-on-odyssey.html) page, or the [Helmod tagged articles]({filename}/tag/Helmod.html)
 
 ## Summary of Slurm commands
 
-The table below shows a summary of Slurm commands, along with LSF equivalents and an example. These commands are described in more detail below along with links to the Slurm doc site.
+The table below shows a summary of Slurm commands. These commands are described in more detail below along with links to the Slurm doc site.
 
 <table>
 	<tbody>
@@ -103,27 +110,27 @@ The table below shows a summary of Slurm commands, along with LSF equivalents an
 		</tr>
 		<tr>
 			<td>Submit a batch serial job</td>
-			<td>sbatch</td>
+			<td><a href="http://slurm.schedmd.com/sbatch.html">sbatch</a></td>
 			<td><code>sbatch runscript.sh</code></td>
 		</tr>
 		<tr>
 			<td>Run a script interatively</td>
-			<td>srun</td>
+			<td><a href="http://slurm.schedmd.com/srun.html">srun</a></td>
 			<td><code>srun --pty -p interact -t 10 --mem 1000 /bin/bash /bin/hostname</code></td>	
 		</tr>
 		<tr>
 			<td>Kill a job</td>
-			<td>scancel</td>
+			<td><a href="http://slurm.schedmd.com/scancel.html">scancel</a></td>
 			<td><code>scancel 999999</code></td>
 		</tr>
 		<tr>
 			<td>View status of queues</td>
-			<td>squeue</td>
+			<td><a href="http://slurm.schedmd.com/squeue.html">squeue</a></td>
 			<td><code>squeue -u akitzmiller</code></td>
 		</tr>
 		<tr>			
 			<td>Check current job by id</td>
-			<td>sacct</td>
+			<td><a href="http://slurm.schedmd.com/squeue.html">sacct</a></td>
 			<td><code>sacct -j 999999</code></td>
 		</tr>
 	</tbody>
@@ -141,57 +148,61 @@ Though Slurm is not as common as SGE or LSF, documentation is readily available.
 
 ## Submitting batch jobs using the `sbatch` command
 
-The main way to run jobs on Odyssey is by submitting a script with the sbatch command. The command to submit a job is as simple as:
+The main way to run jobs on Odyssey is by submitting a script with the `sbatch` command. The command to submit a job is as simple as:
 
     :::shell-session
     sbatch runscript.sh
 
-The commands specified in the runscript.sh file will then be run on the first available compute node that fits the resources requested in the script. sbatch returns immediately after submission; commands are not run as foreground processes and won't stop if you disconnect from Odyssey. A typical submission script, in this case using the `hostname` command to get the computer name, will look like this:
+The commands specified in the runscript.sh file will then be run on the first available compute node that fits the resources requested in the script. `sbatch` returns immediately after submission; commands are not run as foreground processes and won't stop if you disconnect from Odyssey. A typical submission script, in this case using the `hostname` command to get the computer name, will look like this:
 
     :::bash
-    #!/bin/bash # 
-    #SBATCH -n 1 # Number of cores 
-    #SBATCH -N 1 # Ensure that all cores are on one machine 
-    #SBATCH -t 0-00:05 # Runtime in D-HH:MM 
-    #SBATCH -p serial_requeue # Partition to submit to 
-    #SBATCH --mem=100 # Memory pool for all cores (see also --mem-per-cpu) 
-    #SBATCH -o hostname.out # File to which STDOUT will be written 
-    #SBATCH -e hostname.err # File to which STDERR will be written 
-    #SBATCH --mail-type=END # Type of email notification- BEGIN,END,FAIL,ALL 
+    #!/bin/bash 
+    #SBATCH -n 1                    # Number of cores 
+    #SBATCH -N 1                    # Ensure that all cores are on one machine 
+    #SBATCH -t 0-00:05              # Runtime in D-HH:MM 
+    #SBATCH -p serial_requeue       # Partition to submit to 
+    #SBATCH --mem=100               # Memory pool for all cores (see also --mem-per-cpu) 
+    #SBATCH -o hostname.out         # File to which STDOUT will be written 
+    #SBATCH -e hostname.err         # File to which STDERR will be written 
+    #SBATCH --mail-type=END         # Type of email notification- BEGIN,END,FAIL,ALL 
     #SBATCH --mail-user=ajk@123.com # Email to which notifications will be sent
        
     hostname
 
-In general, the script is composed of 3 parts- the `#!/bin/bash` line allows the script to be run as a bash script; the `#SBATCH` lines are technically bash comments, but they set various parameters for the Slurm scheduler; the command line itself. The `#SBATCH` lines shown above set key parameters. _N.B. It is important to keep all `#SBATCH` lines together and at the top of the script; no bash code or variables settings should be done until after the `#SBATCH` lines._ The Slurm system copies many environment variables from your current session to the compute host where the script is run including `PATH` and your current working directory. As a result, you can specify files relative to your current location (e.g. `./project/myfiles/myfile.txt`).
+In general, the script is composed of 3 parts. 
 
-<dl>
-<dt><code>#SBATCH -n 1</code></dt>
-<dd>This line sets the number of cores that you're requesting. Make sure that your tool can use multiple cores before requesting more than one. If this parameter is omitted, Slurm assumes <code>-n 1</code>.</dd>
-</dl>
-<dl>
-<dt><code>#SBATCH -N 1</code></dt>
-<dd>This line requests that the cores are all on node. Only change this to >1 if you know your code uses a message passing protocol like MPI. Slurm makes no assumptions on this parameter -- if you request more than one core (-n > 1) and your forget this parameter, your job may be scheduled across nodes; and unless your job is MPI (multinode) aware, your job will run slowly, as it is oversubscribed on the master node and wasting resources on the other(s).</dd>
-<dt><code>#SBATCH -t 5</code></dt>
-<dd>This line specifies the running time for the job in minutes. You can also the convenient format D-HH:MM. If your job runs longer than the value you specify here, it will be cancelled. Jobs have a maximum run time of 7 days on Odyssey, though extensions can be done. There is no penalty for over-requesting time. **NOTE!** If this parameter is omitted on any partition, the your job will be given the default of 10 minutes.</dd>
-<dt><code>#SBATCH -p serial_requeue</code></dt>
-<dd>This line specifies the Slurm partition (AKA queue) under which the script will be run. The serial_requeue partition is good for routine jobs that can handle being occasionally stopped and restarted. PENDING times are typically short for this queue. See the [partitions description below](#Slurm_partitions) for more information</dd>
+* the `#!/bin/bash` line allows the script to be run as a bash script
+* the `#SBATCH` lines are technically bash comments, but they set various parameters for the Slurm scheduler
+* the command line itself. 
 
-<dt><code>#SBATCH --mem=100</code></dt>
-<dd>The Odyssey cluster requires that you specify the amount of memory (in MB) that you will be using for your job. Accurate specifications allow jobs to be run with maximum efficiency on the system. There are two main options, <code>--mem-per-cpu</code> and <code>--mem</code>. The <code>--mem</code> option specifies the total memory pool for one or more cores, and is the recommended option to use. If you must do work across multiple compute nodes (e.g. MPI code), then you must use the <code>--mem-per-cpu</code> option, as this will allocate the amount specified for each of the cores you're requested, whether it is on one node or multiple nodes. If this parameter is omitted, the smallest amount is allocated, usually 100 MB. And chances are good that your job will be killed as it will likely go over this amount.</dd>
+The `#SBATCH` lines shown above set key parameters. *N.B. It is important to keep all `#SBATCH` lines together and at the top of the script; no bash code or variables settings should be done until after the `#SBATCH` lines.* The Slurm system copies many environment variables from your current session to the compute host where the script is run including `PATH` and your current working directory. As a result, you can specify files relative to your current location (e.g. `./project/myfiles/myfile.txt`).
 
-<dt><code>#SBATCH -o hostname.out</code></dt>
-<dd>This line specifies the file to which standard out will be appended. If a relative file name is used, it will be relative to your current working directory. If this parameter is omitted, any output will be directed to a file named Slurm-JOBID.out in the current directory.</dd>
+#### `#SBATCH -n 1`
+This line sets the number of cores that you're requesting. Make sure that your tool can use multiple cores before requesting more than one. If this parameter is omitted, Slurm assumes `-n 1`.
 
-<dt><code>#SBATCH -e hostname.err</code></dt>
-<dd>This line specifies the file to which standard error will be appended. Slurm submission and processing errors will also appear in the file. If this parameter is omitted, any output will be directed to a file named Slurm-JOBID.out in the current directory.</dd>
+#### `#SBATCH -N 1`
+This line requests that the cores are all on node. Only change this to >1 if you know your code uses a message passing protocol like MPI. Slurm makes no assumptions on this parameter -- if you request more than one core (-n > 1) and your forget this parameter, your job may be scheduled across nodes; and unless your job is MPI (multinode) aware, your job will run slowly, as it is oversubscribed on the master node and wasting resources on the other(s).
 
-<dt><code>#SBATCH --mail-type=END</code></dt>
-<dd>Because jobs are processed in the "background" and can take some time to run, it is useful send an email message when the job has finished (--mail-type=END). Email can also be sent for other processing stages (START, FAIL) or at all of the times (ALL)</dd>
+#### `#SBATCH -t 5`
+This line specifies the running time for the job in minutes. You can also the convenient format D-HH:MM. If your job runs longer than the value you specify here, it will be cancelled. Jobs have a maximum run time of 7 days on Odyssey, though extensions can be done. There is no penalty for over-requesting time. **NOTE!** If this parameter is omitted on any partition, the your job will be given the default of 10 minutes.
 
-<dt><code>#SBATCH --mail-user=ajk@123.com</code></dt>
-<dd>The email address to which the --mail-type messages will be sent.</dd>
+#### `#SBATCH -p serial_requeue`
+This line specifies the Slurm partition (AKA queue) under which the script will be run. The serial_requeue partition is good for routine jobs that can handle being occasionally stopped and restarted. PENDING times are typically short for this queue. See the [partitions description below](#Slurm_partitions) for more information
 
-</dl>
+#### `#SBATCH --mem=100`
+The Odyssey cluster requires that you specify the amount of memory (in MB) that you will be using for your job. Accurate specifications allow jobs to be run with maximum efficiency on the system. There are two main options, `--mem-per-cpu` and `--mem`. The `--mem` option specifies the total memory pool for one or more cores, and is the recommended option to use. If you must do work across multiple compute nodes (e.g. MPI code), then you must use the `--mem-per-cpu` option, as this will allocate the amount specified for each of the cores you're requested, whether it is on one node or multiple nodes. If this parameter is omitted, the smallest amount is allocated, usually 100 MB. And chances are good that your job will be killed as it will likely go over this amount.
+
+#### `#SBATCH -o hostname.out`
+This line specifies the file to which standard out will be appended. If a relative file name is used, it will be relative to your current working directory. If this parameter is omitted, any output will be directed to a file named Slurm-JOBID.out in the current directory.
+
+#### `#SBATCH -e hostname.err`
+This line specifies the file to which standard error will be appended. Slurm submission and processing errors will also appear in the file. If this parameter is omitted, any output will be directed to a file named Slurm-JOBID.out in the current directory.
+
+#### `#SBATCH --mail-type=END`
+Because jobs are processed in the "background" and can take some time to run, it is useful send an email message when the job has finished (--mail-type=END). Email can also be sent for other processing stages (START, FAIL) or at all of the times (ALL)
+
+#### `#SBATCH --mail-user=ajk@123.com<`
+The email address to which the --mail-type messages will be sent.
 
 ### It is important to accurately request resources, **especially memory**
 
@@ -202,7 +213,7 @@ Many scientific computing tools can take advantage of multiple processing cores,
 The distinction between `--mem` and `--mem-per-cpu` is important when running multi-core jobs (for single core jobs, the two are equivalent). `--mem` sets total memory across all cores, while `--mem-per-cpu` sets the value for each requested core. If you request two cores (`-n 2`) and 4 Gb with `--mem`, each core will receive 2 Gb RAM. If you specify 4 Gb with `--mem-per-cpu`, each core will receive 4 Gb for a total of 8 Gb. 
 
 ## Monitoring job progress with squeue and sacct 
-`squeue` and `sacct` are two different commands that allow you to monitor job activity in Slurm. `squeue` is the primary and most accurate monitoring tool since it queries the Slurm controller directly. `sacct` gives you similar information for running jobs, and can also report on previously finished jobs, but because it accesses the Slurm database, there are some circumstances when the information is not in sync with `squeue`. 
+`squeue` and `sacct` are two different commands that allow you to monitor job activity in Slurm. `squeue` is the primary and most accurate monitoring tool. `sacct` gives you similar information for running jobs, and can also report on previously finished jobs, but because it accesses the Slurm database, there are some circumstances when the information is not in sync with `squeue`. 
 
 Running `squeue` without arguments will list all currently running jobs. It is more common, though to list jobs for a particular user (like yourself) using the `-u` option...
 
@@ -216,16 +227,33 @@ or for a particular job
 
 If you include the `-l` option (for "long" output) you can get useful data, including the running state of the job. 
 
-[![squeue "long" output using username (-u) and job id (-j) filters](/wp-content/uploads/2014/03/squeue.png)](/wp-content/uploads/2014/03/squeue.png) *`squeue` long output using username (`-u`) and job id (`-j`) filters* 
+<figure>
+	<a class="img" href="/images/squeue-l.png">
+    		<img class="img-temp" src="/images/squeue-l.png"></img>
+	</a>
+    <figcaption>`squeue` long output using username (`-u`) filter.</figcaption>
+</figure>
 
-The [squeue man page](http://Slurm.schedmd.com/squeue.html) has a complete description of the tool options. The `sacct` command also provides details on the state of a particular job. An `squeue`-like report on a single job is a simple command.
+The default `squeue` tool in your PATH (`/usr/local/bin/squeue`) is a modified version developed by FAS Informatics.  To reduce the load on the Slurm scheduler (RC processes 2.5 million jobs each month), this tool actually queries a centrally collected result from the 'real' `squeue` tool, which can be found at `/usr/bin/squeue`.  This data is collected approximately every 30 seconds.  Many, but not all, of the options from the original tool are supported.  Check this using the `squeue --help` command.
+
+If you need to use all of the options from the real `squeue` tool, simply call it directly (`/usr/bin/squeue`).
+
+The current state of jobs can also be monitored via the [FAS RC/Informatics portal jobs page](https://portal.rc.fas.harvard.edu/jobs/).  You will need to login with your RC credentials.  This draws from the same shared data as the `squeue` command line tool.
+
+The `sacct` command also provides details on the state of a particular job. An `squeue`-like report on a single job is a simple command.
 
     :::shell-session
     sacct -j 9999999
 
-However `sacct` can provide much more detail as it has access to many of the resource accounting fields that Slurm uses. For example, to get a detailed report on the memory usage for today's jobs for user `cwill`: 
+However `sacct` can provide much more detail as it has access to many of the resource accounting fields that Slurm uses. For example, to get a detailed report on the memory and cpu usage for an array job (see below for details about job arrays): 
 
-[![Example of using sacct for detailed job information](/wp-content/uploads/2014/03/sacct.png)](/wp-content/uploads/2014/03/sacct.png) *Example of using `sacct` for detailed job information* 
+<figure>
+	<a class="img" href="/images/sacct-array-job.png">
+    		<img class="img-temp" src="/images/sacct-array-job.png"></img>
+	</a>
+    <figcaption>Listing of job details using sacct.</figcaption>
+</figure>
+
 
 Both tools provide information about the job State. This value will typically be one of PENDING, RUNNING, COMPLETED, CANCELLED, and FAILED.
 
@@ -285,10 +313,18 @@ In this case, we've asked for more memory because of the larger MATLAB footprint
 
 ## Remote desktop access
 
-As described in the [Access & Login](/resources/access-and-login/#Consider_an_NX_remote_desktop_for_graphical_applications_like_Matlab_and_RStudio) page, you can connect to the Odyssey system through NX-based remote desktops. Remote desktop access is particularly useful for heavy client applications like Matlab, SAS, and Spyder where the performance of X11 forwarding is poor. Once you have connected via NX, though, you should start an interactive session or run batch jobs. The `rcnx*` servers are just like Odyssey login nodes and cannot support direct computation. [![Run an interactive session before starting your application.](/wp-content/uploads/2014/02/nx-run-interactive-job.png)](/wp-content/uploads/2014/02/nx-run-interactive-job.png) *Run an interactive session before starting your application* 
+As described in the [Access & Login](/resources/access-and-login/#Consider_an_NX_remote_desktop_for_graphical_applications_like_Matlab_and_RStudio) page, you can connect to the Odyssey system through NX-based remote desktops. Remote desktop access is particularly useful for heavy client applications like Matlab, SAS, and Spyder where the performance of X11 forwarding is poor. Once you have connected via NX, though, you should start an interactive session or run batch jobs. The `rcnx*` and `holynx*` servers are just like Odyssey login nodes and cannot support direct computation. 
+
+<figure>
+	<a class="img" href="/images/nx-interactive-session.png">
+    		<img class="img-temp" src="/images/nx-interactive-session.png"></img>
+	</a>
+    <figcaption>Run an interactive session before starting your application.</figcaption>
+</figure>
+
 
 ## Slurm partitions 
-_Partition_ is the term that Slurm uses for queues. Partitions can be thought of as a set of resources and parameters around their use.
+*Partition* is the term that Slurm uses for queues. Partitions can be thought of as a set of resources and parameters around their use.
 
 #### general
 The `general` partition has a maximum run time of 7 days. Serial, parallel, and interactive jobs are permitted on this queue, and this is the most appropriate location for MPI jobs. This queue is governed by backfill and FairShare (explained below). 
@@ -360,17 +396,15 @@ A variety of problems can arise when running jobs on Odyssey. Many are related t
 </table>
 
 ## Using MPI
-MPI (Message Passing Interface) is a standard that supports communication between separate processes, allowing parallel programs to simulate a large common memory space. Two implementations, OpenMPI and MVAPICH2 are available as modules on Odyssey.  
+MPI (Message Passing Interface) is a standard that supports communication between separate processes, allowing parallel programs to simulate a large common memory space. OpenMPI](https://portal.rc.fas.harvard.edu/apps/modules/openmpi) and [MVAPICH2](https://portal.rc.fas.harvard.edu/apps/modules/mvapich2) are available as modules on Odyssey as well as an [Intel specific library](https://portal.rc.fas.harvard.edu/apps/modules/impi).  
 
-As described in the [Helmod documentation]({filename}/helmod.html), MPI libraries are a special class of module, called "Comp", that is compiler dependent.  To load an MPI library, load the compiler first.
+As described in the [Helmod documentation]({filename}/software-on-odyssey.html), MPI libraries are a special class of module, called "Comp", that is compiler dependent.  To load an MPI library, load the compiler first.
 
 
     :::shell-session
     $ module load intel/15.0.0-fasrc01 openmpi/1.10.0-fasrc01
 
 Once an MPI module is loaded, applications built against that library are made available.  This dynamic loading mechanism prevents conflicts that can arise between compiler versions and MPI library flavors. 
-
-There are a large number of library releases available for [OpenMPI](https://portal.rc.fas.harvard.edu/apps/modules/openmpi) and [MVAPICH2](https://portal.rc.fas.harvard.edu/apps/modules/mvapich2).  An [Intel MPI implementation](https://portal.rc.fas.harvard.edu/apps/modules/impi) is also available.
 
 An example MPI script with comments is shown below:
 
@@ -427,4 +461,11 @@ In the script, two types of substitution variables are available when running jo
 ## Job dependencies
 Many scientific computing tasks consist of serial processing steps. A genome assembly pipeline, for example, may require sequence quality trimming, assembly, and annotation steps that must occur in series. Launching each of these jobs without manual intervention can be done by repeatedly polling the controller with `squeue` / `sacct` until the State is COMPLETED. However, it's much more efficient to let the Slurm controller handle this using the `--dependency` option. 
 
-[![Example of submitting a job with a dependency on a previous job.](/wp-content/uploads/2014/03/dependency_example.png)](/wp-content/uploads/2014/03/dependency_example.png) *Example of submitting a job with a dependency on a previous job* When submitting a job, specify a combination of "dependency type" and job ID in the `--dependency` option. `afterok` is an example of a dependency type that will run the dependent job if the parent job completes successfully (state goes to COMPLETED). The full list of dependency types can be found on the Slurm doc site in the [man page for sbatch](http://slurm.schedmd.com/sbatch.html). 
+<figure>
+	<a class="img" href="/images/job-dependency.png">
+    		<img class="img-temp" src="/images/job-dependency.png"></img>
+	</a>
+    <figcaption>Example of submitting a job with a dependency on a previous job.</figcaption>
+</figure>
+
+When submitting a job, specify a combination of "dependency type" and job ID in the `--dependency` option. `afterok` is an example of a dependency type that will run the dependent job if the parent job completes successfully (state goes to COMPLETED). The full list of dependency types can be found on the Slurm doc site in the [man page for sbatch](http://slurm.schedmd.com/sbatch.html). 

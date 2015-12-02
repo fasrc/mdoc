@@ -16,6 +16,8 @@ In academic environments, software management is more complex than for individua
 
 [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod), and the Harvard extension, [Helmod](https://github.com/fasrc/helmod), was developed at TACC to address a number of problems that arise with large scientific module deployments, particularly the loading of incompatible modules built with different compilers, MPI libraries, etc.
 
+Helmod uses many of the same commands that a Linux module system uses (`module load`, `module unload`, `module avail`), but enhances them with additional functionality.
+
 ### Helmod module names have 3 parts
 Helmod modules must be loaded by name, though names can be partial.  Helmod module names are composed of the application name, the application version, and the release in the following form:
 
@@ -32,7 +34,23 @@ The application name and version number are determined by the authors.  The rele
 A very common cause of problems in module systems is library mismatches due to the loading of incompatible versions.  While you can still enable applications manually (i.e. set PATH, etc. yourself), module load commands will swap out previously loaded versions.
 
 ### Helmod modules have a type
-As described in more detail below, Helmod modules are one of three different types: Core, Comp, or MPI.
+Helmod modules are one of three different types: *Core*, *Comp*, or *MPI*.
+
+*Core* applications are constructed using the base operating system.  Compiled C, C++, or Fortran applications use the base gcc 4.4.7.  Architecture-independent applications are also Core.  These applications can be loaded directly.
+
+*Comp* applications are compiler-dependent and cannot be loaded until the appropriate compiler is loaded.  For example, the blasr application cannot be compiled with the system gcc because it uses advanced C++ constructs. As a result, the compiler module must be loaded first.
+
+    :::shell-session
+    $ module load gcc/4.8.2-fasrc01 blasr/20151013-fasrc01
+    
+An attempt to load a new compiler after one has already been loaded will result in an error.
+    
+*MPI* applications depend on a specific MPI library module (e.g. openmpi/1.10.0-fasrc01).  Because MPI libraries themselves are compiler-dependent, an MPI application requires the loading of both the compiler and the MPI library modules.  For example:
+
+    :::shell-session
+    $ module load intel/15.0.0-fasrc01 openmpi/1.10.0-fasrc01 abyss/1.9.0-fasrc01 
+
+The instructions for loading modules can be obtained by the search methods described below.
 
 ### Search for Helmod modules by portal web page...
 The [RC/Informatics web portal Modules page](module_list>) provides a complete list of the Helmod modules deployed on Odyssey.  The Search box can be used to subset the list.  In addition to the module name that best matches your search term, other modules that may include that term in their description or in their dependency list, may be retrieved.
@@ -104,7 +122,7 @@ Command line browsing of the full list of available modules can be done with the
 
 
 
-### Helmod uses improved versions of the `module`, commands
+### Helmod uses improved versions of the `module` commands
 Like other module systems, Helmod uses `module` commands to enable, disable, and query applications.  Enabling an application that is not otherwise available requires a `module load`
 
 <figure>
@@ -171,6 +189,12 @@ MPI-dependent applications are enabled in a similar way, but, because MPI librar
 
 ### Some modules are aliases of others
 When modules are built in RC, the application name usually follows the name of the distribution package to ensure that the build process is as smooth as possible.  Sometimes, the distribution name (e.g. jdk) is not how the package is commonly known (java).  For the more common cases, alias packages are created that simply load another package using a different name.
+
+### Some Helmod modules are setup with 'wiggle room' in their dependencies.
+Many modules depend on other modules, but that dependency is not precisely tied to a specific version-release combination.  For example, a module that depends on the Perl interpreter may function just fine with Perl versions 5.8 through 5.20.  As a result, these modules have been coded to determine whether the application has already been loaded and, if it is, do nothing.  
+
+The use of 'wiggle room' in dependency resolution prevents modules from being artificially incompatible.  On occasion, however, unintended problems can arise when, for example, a much newer version of a dependency is loaded.  If you see compatibility errors, check to see what is actually loaded in your environment with the `module list` command.  Changing the order of module loading can alleviate most of these problems. 
+
 
 ## Python should be used within an Anaconda environment
 Python is an extremely popular interpreted programming language that has an array of excellent packages for scientific computing.  It is not uncommon to see module systems on academic clusters provide some of the major Python packages like scipy and numpy.  However, in our experience, this leads to complex `PYTHONPATH`s that, especially without Helmod version resolution, can create incompatible environments.
@@ -260,8 +284,4 @@ Most Java applications are distributed as jar files with few if any external lib
        or: 
            SE [-threads <threads>] [-phred33|-phred64] [-trimlog <trimLogFile>] [-quiet] <inputFile> <outputFile> <trimmer1>...
     
-
-## GPUs can be used via CUDA libraries
-
-
 
