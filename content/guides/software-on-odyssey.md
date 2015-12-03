@@ -14,7 +14,7 @@ The default, preferred shell is bash.  Many parts of our software infrastructure
 ## An enhanced module system called Helmod is used to enable applications
 In academic environments, software management is more complex than for individual, stand alone computers.  Users need multiple versions of the same package; many applications cannot be installed with the system package manager; software needed by different users may conflict.  As a result many shared compute resources use [Linux environment modules](http://modules.sourceforge.net/) to manage access to software.  Linux modules alter your environment (e.g. PATH, LD_LIBRARY_PATH, PYTHONPATH) to enable a subset of the applications deployed to the cluster.  For many years, Odyssey has used modules to enable applications.
 
-[Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod), and the Harvard extension, [Helmod](https://github.com/fasrc/helmod), was developed at TACC to address a number of problems that arise with large scientific module deployments, particularly the loading of incompatible modules built with different compilers, MPI libraries, etc.
+[Helmod](https://github.com/fasrc/helmod) is a Harvard extension of of the [Lmod](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod) system developed at TACC.  Lmod was developed to address a number of problems that arise with large scientific module deployments, particularly the loading of incompatible modules built with different compilers, MPI libraries, etc.
 
 Helmod uses many of the same commands that a Linux module system uses (`module load`, `module unload`, `module avail`), but enhances them with additional functionality.
 
