@@ -70,6 +70,6 @@ INTERLINKS = {
 }
 
 MENUITEMS = [
-    ('RC Docs','/'),
+    ('Docs @ RC','/'),
 ]
 

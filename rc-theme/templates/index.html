@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+{% block content %}
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>Docs @ RC</h1>
+            </header>
+            <div class="entry-content">
+				<h2>Welcome to the User Documentation for Research Computing</h2>
+				<p>
+					The articles in Docs @ RC provide usage and best practices information for users of RC resources, including the Odyssey cluster.
+                </p>
+				<h2>Getting started</h2>
+				<p>
+					These guides provide overviews of the Odyssey compute farm.
+				</p>
+				<ul>
+					<li><a href="{{ SITEURL }}/odyssey-quickstart-guide.html">Odyssey Quick Start</a></li>
+					<li><a href="{{ SITEURL }}/access-and-login.html">Access and Login</a></li>
+					<li><a href="{{ SITEURL }}/running-jobs.html">Running Jobs</a></li>
+					<li><a href="{{ SITEURL }}/software-on-odyssey.html">Software on Odyssey</a></li>
+				</ul>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+{% endblock %}
