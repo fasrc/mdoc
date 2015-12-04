@@ -56,8 +56,8 @@ The instructions for loading modules can be obtained by the search methods descr
 The [RC/Informatics web portal Modules page](module_list>) provides a complete list of the Helmod modules deployed on Odyssey.  The Search box can be used to subset the list.  In addition to the module name that best matches your search term, other modules that may include that term in their description or in their dependency list, may be retrieved.
 
 <figure>
-	<a class="img" href="/images/module-page-search-libogg.png">
-    		<img class="img-temp" src="/images/module-page-search-libogg.png"></img>
+	<a class="img" href="/docs/images/module-page-search-libogg.png">
+    		<img class="img-temp" src="/docs/images/module-page-search-libogg.png"></img>
 	</a>
     <figcaption>Portal search for libogg returns library and other matches.</figcaption>
 </figure>
@@ -65,8 +65,8 @@ The [RC/Informatics web portal Modules page](module_list>) provides a complete l
 More than just the module name and application description is retrieved by a portal search.  As described below, some applications may require other modules to be loaded first; the necessary module load statements are shown for each version and release.  Differences in the way various releases are built are described in Build Comments where available.  Additional module dependencies loaded by the module are listed.
 
 <figure>
-	<a class="img" href="/images/module-search-page-netcdf.png">
-    		<img class="img-temp" src="/images/module-search-page-netcdf.png"></img>
+	<a class="img" href="/docs/images/module-search-page-netcdf.png">
+    		<img class="img-temp" src="/docs/images/module-search-page-netcdf.png"></img>
 	</a>
     <figcaption>Portal search for netcdf shows build comments, module load statements.</figcaption>
 </figure>
@@ -76,8 +76,8 @@ Some applications or libraries may be a part of a larger package.  For example, 
 There are a number of application types that are best installed in user home directories and so may not be available as modules on Odyssey.  Applications delivered as Java jar files or pure Python applications are generally in this category.  Some of these applications may be returned when searching the module list, though, along with instructions to help with local user installation.
 
 <figure>
-	<a class="img" href="/images/module-search-page-khmer.png">
-    		<img class="img-temp" src="/images/module-search-page-khmer.png"></img>
+	<a class="img" href="/docs/images/module-search-page-khmer.png">
+    		<img class="img-temp" src="/docs/images/module-search-page-khmer.png"></img>
 	</a>
     <figcaption>Portal search for khmer returns installation instructions.</figcaption>
 </figure>
@@ -87,8 +87,8 @@ There are a number of application types that are best installed in user home dir
 While you're in an Odyssey terminal session, you can search for modules using the `module-query` command.  Running `module-query --help` will describe all of the options, but all you really need is a search term.  Using an application name like 'hdf5' will return a consolidated report of all of the modules that match the term.
 
 <figure>
-	<a class="img" href="/images/module-query-hdf5.png">
-    		<img class="img-temp" src="/images/module-query-hdf5.png"></img>
+	<a class="img" href="/docs/images/module-query-hdf5.png">
+    		<img class="img-temp" src="/docs/images/module-query-hdf5.png"></img>
 	</a>
     <figcaption>Search for application name returns a list of modules.</figcaption>
 </figure>
@@ -96,8 +96,8 @@ While you're in an Odyssey terminal session, you can search for modules using th
 Any query for which a single record is returned (e.g. a query for a fully-specified module name) will provide more detail for that specific module, including module load statements and build comments.
 
  <figure>
-	<a class="img" href="/images/module-query-hdf5-1.8.12.png">
-    		<img class="img-temp" src="/images/module-query-hdf5-1.8.12.png"></img>
+	<a class="img" href="/docs/images/module-query-hdf5-1.8.12.png">
+    		<img class="img-temp" src="/docs/images/module-query-hdf5-1.8.12.png"></img>
 	</a>
     <figcaption>Single module report includes module build details.</figcaption>
 </figure>
@@ -105,8 +105,8 @@ Any query for which a single record is returned (e.g. a query for a fully-specif
 Full text queries can be done against the meta-data stored with the application and module records.  This can be used to search for modules that are dependent on the modules matching the search term or to look for general terms used in the application description text.  These searches are not particularly sophisticated and meta-data should not be expected to be comprehensive.
 
  <figure>
-	<a class="img" href="/images/module-query-full-text.png">
-    		<img class="img-temp" src="/images/module-query-full-text.png"></img>
+	<a class="img" href="/docs/images/module-query-full-text.png">
+    		<img class="img-temp" src="/docs/images/module-query-full-text.png"></img>
 	</a>
     <figcaption>Full text search matches text in the application description.</figcaption>
 </figure>
@@ -114,8 +114,8 @@ Full text queries can be done against the meta-data stored with the application 
 Command line browsing of the full list of available modules can be done with the `module avail` command.  As described below in more detail, the modules listed by `module avail` can change based on what has already been loaded.  For example, if the `gcc/5.2.0-fasrc01` compiler module is loaded, an additional set of modules will become available.
 
  <figure>
-	<a class="img" href="/images/module-avail-gcc.png">
-    		<img class="img-temp" src="/images/module-avail-gcc.png"></img>
+	<a class="img" href="/docs/images/module-avail-gcc.png">
+    		<img class="img-temp" src="/docs/images/module-avail-gcc.png"></img>
 	</a>
     <figcaption>Module avail after loading gcc/5.2.0-fasrc01.</figcaption>
 </figure>
@@ -126,8 +126,8 @@ Command line browsing of the full list of available modules can be done with the
 Like other module systems, Helmod uses `module` commands to enable, disable, and query applications.  Enabling an application that is not otherwise available requires a `module load`
 
 <figure>
-	<a class="img" href="/images/module-load-R.png">
-    		<img class="img-temp" src="/images/module-load-R.png"></img>
+	<a class="img" href="/docs/images/module-load-R.png">
+    		<img class="img-temp" src="/docs/images/module-load-R.png"></img>
 	</a>
     <figcaption>module load R.</figcaption>
 </figure>
@@ -137,8 +137,8 @@ In the case of the `module load R/3.2.0-fasrc01` command shown, the PATH environ
 Loading more complex modules can affect a number of environment variables including `PYTHONPATH`, `LD_LIBRARY_PATH`, `PERL5LIB`, etc. Modules may also load dependencies. An application that uses Java may load the module for the appropriate Java interpreter. The `module list` command will show what is in your environment.
 
 <figure>
-	<a class="img" href="/images/module-load-trinityrnaseq.png">
-    		<img class="img-temp" src="/images/module-load-trinityrnaseq.png"></img>
+	<a class="img" href="/docs/images/module-load-trinityrnaseq.png">
+    		<img class="img-temp" src="/docs/images/module-load-trinityrnaseq.png"></img>
 	</a>
     <figcaption>Load of module trinityrnaseq and changes to the environment.</figcaption>
 </figure>
@@ -148,8 +148,8 @@ When an application name is used alone in a module load statement (without the v
 Using a `module avail` command with an application name will show all of the modules that match along with a `(D)` next to the default module.  In the case of Python, the 2.7.6 version is the default, even though the 3.4.1 version is a later release.
 
 <figure>
-	<a class="img" href="/images/module-load-python.png">
-    		<img class="img-temp" src="/images/module-load-python.png"></img>
+	<a class="img" href="/docs/images/module-load-python.png">
+    		<img class="img-temp" src="/docs/images/module-load-python.png"></img>
 	</a>
     <figcaption>Loading 'python' will activate the default 2.7.6 version.</figcaption>
 </figure>
@@ -172,8 +172,8 @@ The Helmod system, based on TACC's Lmod, does not enable applications built with
 A check using the [portal search page](module_list>) or the `module-query` tool will show that Atlas is a Comp module that was built with either the Intel 15 compiler or the gcc 4.8.2 compiler.  Loading one of those first will allow the Atlas library to be loaded.
 
 <figure>
-	<a class="img" href="/images/module-load-atlas.png">
-    		<img class="img-temp" src="/images/module-load-atlas.png"></img>
+	<a class="img" href="/docs/images/module-load-atlas.png">
+    		<img class="img-temp" src="/docs/images/module-load-atlas.png"></img>
 	</a>
     <figcaption>Load a compiler first for a Comp application or library.</figcaption>
 </figure>
@@ -181,8 +181,8 @@ A check using the [portal search page](module_list>) or the `module-query` tool 
 MPI-dependent applications are enabled in a similar way, but, because MPI libraries themselves are compiler dependent, both compiler and MPI library modules must be loaded before an application can be used.
 
 <figure>
-	<a class="img" href="/images/module-load-abyss.png">
-    		<img class="img-temp" src="/images/module-load-abyss.png"></img>
+	<a class="img" href="/docs/images/module-load-abyss.png">
+    		<img class="img-temp" src="/docs/images/module-load-abyss.png"></img>
 	</a>
     <figcaption>Load a compiler and MPI library before loading an MPI application .</figcaption>
 </figure>

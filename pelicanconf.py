@@ -8,7 +8,7 @@ PLUGINS = ['tag_cloud.tag_cloud','interlinks']
 
 AUTHOR = u'Aaron Kitzmiller'
 SITENAME = u'Harvard FAS Research Computing'
-SITEURL = ''
+SITEURL = '/docs'
 TAGS_URL = 'tags'
 PATH = 'content'
 BANNER = True
@@ -51,7 +51,7 @@ DISPLAY_CATEGORIES_ON_SIDEBAR = False
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 STATIC_PATHS = ['images']
 
@@ -70,6 +70,6 @@ INTERLINKS = {
 }
 
 MENUITEMS = [
-    ('Docs @ RC','/'),
+    ('Docs @ RC',SITEURL),
 ]
 

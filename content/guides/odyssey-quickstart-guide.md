@@ -25,8 +25,8 @@ _See the [OpenAuth doc page]({filename}/pages/openauth) for details about how Op
 For command line access to Odyssey, connect to login.rc.fas.harvard.edu using ssh. If you are running Linux or Mac OSX, open a terminal and type `ssh USERNAME@login.rc.fas.harvard.edu`, where USERNAME is the name you were assigned when you received your account. Enter the password you setup in the account request tool. When prompted for the Verification code, use the OpenAuth supplied number.
 
 <div class="img">
-	<a class="img" href="/images/odyssey-terminal-login.png">
-    		<img src="/images/odyssey-terminal-login.png"></img>
+	<a class="img" href="/docs/images/odyssey-terminal-login.png">
+    		<img src="/docs/images/odyssey-terminal-login.png"></img>
 	</a>
     <div class="caption">Logging in to Odyssey with two-factor authentication.</div>
 </div>
@@ -120,8 +120,8 @@ You can monitor the progress of your job using the `squeue -j JOBID` command, wh
 
 
 <div class="img">
-	<a class="img" href="/images/sbatch-example.png">
-    		<img src="/images/sbatch-example.png"></img>
+	<a class="img" href="/docs/images/sbatch-example.png">
+    		<img src="/docs/images/sbatch-example.png"></img>
 	</a>
     <div class="caption">Example of SLURM batch job submission and monitoring.</div>
 </div>

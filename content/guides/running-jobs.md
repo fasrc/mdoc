@@ -53,8 +53,8 @@ A `module load` command enables a particular application in the environment, mai
     module load R/3.2.0-fasrc01
 
 <figure>
-	<a class="img" href="/images/module-load-R.png">
-    		<img class="img-temp" src="/images/module-load-R.png"></img>
+	<a class="img" href="/docs/images/module-load-R.png">
+    		<img class="img-temp" src="/docs/images/module-load-R.png"></img>
 	</a>
     <figcaption>module load R.</figcaption>
 </figure>
@@ -71,8 +71,8 @@ There are a number of command line options for module searching, including the `
 Though there are many modules available by default, the hierarchical Helmod system enables additional modules after loading certain key libraries such as compilers and MPI packages.  The `module avail` command output reflects this.
 
 <figure>
-	<a class="img" href="/images/module-avail-gcc.png">
-    		<img class="img-temp" src="/images/module-avail-gcc.png"></img>
+	<a class="img" href="/docs/images/module-avail-gcc.png">
+    		<img class="img-temp" src="/docs/images/module-avail-gcc.png"></img>
 	</a>
     <figcaption>View the available modules after loading a compiler.</figcaption>
 </figure>
@@ -80,8 +80,8 @@ Though there are many modules available by default, the hierarchical Helmod syst
 The Helmod `module-query` command supports more sophisticated queries and returns additional information for modules.  If you query by the name of an application or library (e.g. hdf5), you'll retrieve a consolidated report showing all of the modules grouped together for a particular application.
 
 <figure>
-	<a class="img" href="/images/module-query-hdf5.png">
-    		<img class="img-temp" src="/images/module-query-hdf5.png"></img>
+	<a class="img" href="/docs/images/module-query-hdf5.png">
+    		<img class="img-temp" src="/docs/images/module-query-hdf5.png"></img>
 	</a>
     <figcaption>module-query for hdf5.</figcaption>
 </figure> 
@@ -89,8 +89,8 @@ The Helmod `module-query` command supports more sophisticated queries and return
 A query for a single module, however, will return details about that build including module load statements and build comments (if any exist).
 
 <figure>
-	<a class="img" href="/images/module-query-hdf5-1.8.12.png">
-    		<img class="img-temp" src="/images/module-query-hdf5-1.8.12.png"></img>
+	<a class="img" href="/docs/images/module-query-hdf5-1.8.12.png">
+    		<img class="img-temp" src="/docs/images/module-query-hdf5-1.8.12.png"></img>
 	</a>
     <figcaption>module-query for hdf5/1.8.12.</figcaption>
 </figure>
@@ -228,8 +228,8 @@ or for a particular job
 If you include the `-l` option (for "long" output) you can get useful data, including the running state of the job. 
 
 <figure>
-	<a class="img" href="/images/squeue-l.png">
-    		<img class="img-temp" src="/images/squeue-l.png"></img>
+	<a class="img" href="/docs/images/squeue-l.png">
+    		<img class="img-temp" src="/docs/images/squeue-l.png"></img>
 	</a>
     <figcaption>`squeue` long output using username (`-u`) filter.</figcaption>
 </figure>
@@ -248,8 +248,8 @@ The `sacct` command also provides details on the state of a particular job. An `
 However `sacct` can provide much more detail as it has access to many of the resource accounting fields that Slurm uses. For example, to get a detailed report on the memory and cpu usage for an array job (see below for details about job arrays): 
 
 <figure>
-	<a class="img" href="/images/sacct-array-job.png">
-    		<img class="img-temp" src="/images/sacct-array-job.png"></img>
+	<a class="img" href="/docs/images/sacct-array-job.png">
+    		<img class="img-temp" src="/docs/images/sacct-array-job.png"></img>
 	</a>
     <figcaption>Listing of job details using sacct.</figcaption>
 </figure>
@@ -316,8 +316,8 @@ In this case, we've asked for more memory because of the larger MATLAB footprint
 As described in the [Access & Login](/resources/access-and-login/#Consider_an_NX_remote_desktop_for_graphical_applications_like_Matlab_and_RStudio) page, you can connect to the Odyssey system through NX-based remote desktops. Remote desktop access is particularly useful for heavy client applications like Matlab, SAS, and Spyder where the performance of X11 forwarding is poor. Once you have connected via NX, though, you should start an interactive session or run batch jobs. The `rcnx*` and `holynx*` servers are just like Odyssey login nodes and cannot support direct computation. 
 
 <figure>
-	<a class="img" href="/images/nx-interactive-session.png">
-    		<img class="img-temp" src="/images/nx-interactive-session.png"></img>
+	<a class="img" href="/docs/images/nx-interactive-session.png">
+    		<img class="img-temp" src="/docs/images/nx-interactive-session.png"></img>
 	</a>
     <figcaption>Run an interactive session before starting your application.</figcaption>
 </figure>
@@ -462,8 +462,8 @@ In the script, two types of substitution variables are available when running jo
 Many scientific computing tasks consist of serial processing steps. A genome assembly pipeline, for example, may require sequence quality trimming, assembly, and annotation steps that must occur in series. Launching each of these jobs without manual intervention can be done by repeatedly polling the controller with `squeue` / `sacct` until the State is COMPLETED. However, it's much more efficient to let the Slurm controller handle this using the `--dependency` option. 
 
 <figure>
-	<a class="img" href="/images/job-dependency.png">
-    		<img class="img-temp" src="/images/job-dependency.png"></img>
+	<a class="img" href="/docs/images/job-dependency.png">
+    		<img class="img-temp" src="/docs/images/job-dependency.png"></img>
 	</a>
     <figcaption>Example of submitting a job with a dependency on a previous job.</figcaption>
 </figure>
