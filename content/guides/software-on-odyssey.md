@@ -57,7 +57,7 @@ The [RC/Informatics web portal Modules page](module_list>) provides a complete l
 
 <figure>
 	<a class="img" href="/docs/images/module-page-search-libogg.png">
-    		<img class="img-temp" src="/docs/images/module-page-search-libogg.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-page-search-libogg.png"></img>
 	</a>
     <figcaption>Portal search for libogg returns library and other matches.</figcaption>
 </figure>
@@ -66,7 +66,7 @@ More than just the module name and application description is retrieved by a por
 
 <figure>
 	<a class="img" href="/docs/images/module-search-page-netcdf.png">
-    		<img class="img-temp" src="/docs/images/module-search-page-netcdf.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-search-page-netcdf.png"></img>
 	</a>
     <figcaption>Portal search for netcdf shows build comments, module load statements.</figcaption>
 </figure>
@@ -77,7 +77,7 @@ There are a number of application types that are best installed in user home dir
 
 <figure>
 	<a class="img" href="/docs/images/module-search-page-khmer.png">
-    		<img class="img-temp" src="/docs/images/module-search-page-khmer.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-search-page-khmer.png"></img>
 	</a>
     <figcaption>Portal search for khmer returns installation instructions.</figcaption>
 </figure>
@@ -88,7 +88,7 @@ While you're in an Odyssey terminal session, you can search for modules using th
 
 <figure>
 	<a class="img" href="/docs/images/module-query-hdf5.png">
-    		<img class="img-temp" src="/docs/images/module-query-hdf5.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-query-hdf5.png"></img>
 	</a>
     <figcaption>Search for application name returns a list of modules.</figcaption>
 </figure>
@@ -97,7 +97,7 @@ Any query for which a single record is returned (e.g. a query for a fully-specif
 
  <figure>
 	<a class="img" href="/docs/images/module-query-hdf5-1.8.12.png">
-    		<img class="img-temp" src="/docs/images/module-query-hdf5-1.8.12.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-query-hdf5-1.8.12.png"></img>
 	</a>
     <figcaption>Single module report includes module build details.</figcaption>
 </figure>
@@ -106,7 +106,7 @@ Full text queries can be done against the meta-data stored with the application 
 
  <figure>
 	<a class="img" href="/docs/images/module-query-full-text.png">
-    		<img class="img-temp" src="/docs/images/module-query-full-text.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-query-full-text.png"></img>
 	</a>
     <figcaption>Full text search matches text in the application description.</figcaption>
 </figure>
@@ -115,7 +115,7 @@ Command line browsing of the full list of available modules can be done with the
 
  <figure>
 	<a class="img" href="/docs/images/module-avail-gcc.png">
-    		<img class="img-temp" src="/docs/images/module-avail-gcc.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-avail-gcc.png"></img>
 	</a>
     <figcaption>Module avail after loading gcc/5.2.0-fasrc01.</figcaption>
 </figure>
@@ -127,7 +127,7 @@ Like other module systems, Helmod uses `module` commands to enable, disable, and
 
 <figure>
 	<a class="img" href="/docs/images/module-load-R.png">
-    		<img class="img-temp" src="/docs/images/module-load-R.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-load-R.png"></img>
 	</a>
     <figcaption>module load R.</figcaption>
 </figure>
@@ -138,7 +138,7 @@ Loading more complex modules can affect a number of environment variables includ
 
 <figure>
 	<a class="img" href="/docs/images/module-load-trinityrnaseq.png">
-    		<img class="img-temp" src="/docs/images/module-load-trinityrnaseq.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-load-trinityrnaseq.png"></img>
 	</a>
     <figcaption>Load of module trinityrnaseq and changes to the environment.</figcaption>
 </figure>
@@ -149,7 +149,7 @@ Using a `module avail` command with an application name will show all of the mod
 
 <figure>
 	<a class="img" href="/docs/images/module-load-python.png">
-    		<img class="img-temp" src="/docs/images/module-load-python.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-load-python.png"></img>
 	</a>
     <figcaption>Loading 'python' will activate the default 2.7.6 version.</figcaption>
 </figure>
@@ -173,7 +173,7 @@ A check using the [portal search page](module_list>) or the `module-query` tool 
 
 <figure>
 	<a class="img" href="/docs/images/module-load-atlas.png">
-    		<img class="img-temp" src="/docs/images/module-load-atlas.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-load-atlas.png"></img>
 	</a>
     <figcaption>Load a compiler first for a Comp application or library.</figcaption>
 </figure>
@@ -182,7 +182,7 @@ MPI-dependent applications are enabled in a similar way, but, because MPI librar
 
 <figure>
 	<a class="img" href="/docs/images/module-load-abyss.png">
-    		<img class="img-temp" src="/docs/images/module-load-abyss.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-load-abyss.png"></img>
 	</a>
     <figcaption>Load a compiler and MPI library before loading an MPI application .</figcaption>
 </figure>

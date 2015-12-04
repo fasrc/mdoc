@@ -54,7 +54,7 @@ A `module load` command enables a particular application in the environment, mai
 
 <figure>
 	<a class="img" href="/docs/images/module-load-R.png">
-    		<img class="img-temp" src="/docs/images/module-load-R.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-load-R.png"></img>
 	</a>
     <figcaption>module load R.</figcaption>
 </figure>
@@ -72,7 +72,7 @@ Though there are many modules available by default, the hierarchical Helmod syst
 
 <figure>
 	<a class="img" href="/docs/images/module-avail-gcc.png">
-    		<img class="img-temp" src="/docs/images/module-avail-gcc.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-avail-gcc.png"></img>
 	</a>
     <figcaption>View the available modules after loading a compiler.</figcaption>
 </figure>
@@ -81,7 +81,7 @@ The Helmod `module-query` command supports more sophisticated queries and return
 
 <figure>
 	<a class="img" href="/docs/images/module-query-hdf5.png">
-    		<img class="img-temp" src="/docs/images/module-query-hdf5.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-query-hdf5.png"></img>
 	</a>
     <figcaption>module-query for hdf5.</figcaption>
 </figure> 
@@ -90,7 +90,7 @@ A query for a single module, however, will return details about that build inclu
 
 <figure>
 	<a class="img" href="/docs/images/module-query-hdf5-1.8.12.png">
-    		<img class="img-temp" src="/docs/images/module-query-hdf5-1.8.12.png"></img>
+    		<img class="img-responsive" src="/docs/images/module-query-hdf5-1.8.12.png"></img>
 	</a>
     <figcaption>module-query for hdf5/1.8.12.</figcaption>
 </figure>
@@ -229,7 +229,7 @@ If you include the `-l` option (for "long" output) you can get useful data, incl
 
 <figure>
 	<a class="img" href="/docs/images/squeue-l.png">
-    		<img class="img-temp" src="/docs/images/squeue-l.png"></img>
+    		<img class="img-responsive" src="/docs/images/squeue-l.png"></img>
 	</a>
     <figcaption>`squeue` long output using username (`-u`) filter.</figcaption>
 </figure>
@@ -249,7 +249,7 @@ However `sacct` can provide much more detail as it has access to many of the res
 
 <figure>
 	<a class="img" href="/docs/images/sacct-array-job.png">
-    		<img class="img-temp" src="/docs/images/sacct-array-job.png"></img>
+    		<img class="img-responsive" src="/docs/images/sacct-array-job.png"></img>
 	</a>
     <figcaption>Listing of job details using sacct.</figcaption>
 </figure>
@@ -317,7 +317,7 @@ As described in the [Access & Login](/resources/access-and-login/#Consider_an_NX
 
 <figure>
 	<a class="img" href="/docs/images/nx-interactive-session.png">
-    		<img class="img-temp" src="/docs/images/nx-interactive-session.png"></img>
+    		<img class="img-responsive" src="/docs/images/nx-interactive-session.png"></img>
 	</a>
     <figcaption>Run an interactive session before starting your application.</figcaption>
 </figure>
@@ -463,7 +463,7 @@ Many scientific computing tasks consist of serial processing steps. A genome ass
 
 <figure>
 	<a class="img" href="/docs/images/job-dependency.png">
-    		<img class="img-temp" src="/docs/images/job-dependency.png"></img>
+    		<img class="img-responsive" src="/docs/images/job-dependency.png"></img>
 	</a>
     <figcaption>Example of submitting a job with a dependency on a previous job.</figcaption>
 </figure>

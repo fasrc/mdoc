@@ -417,22 +417,22 @@ h6, .h6 {
     font-size: 75%; }
 
 h1, .h1 {
-  font-size: 36px; }
-
-h2, .h2 {
   font-size: 30px; }
 
+h2, .h2 {
+  font-size: 26px; }
+
 h3, .h3 {
-  font-size: 24px; }
+  font-size: 20px; }
 
 h4, .h4 {
-  font-size: 18px; }
+  font-size: 16px; }
 
 h5, .h5 {
-  font-size: 14px; }
+  font-size: 16px; }
 
 h6, .h6 {
-  font-size: 12px; }
+  font-size: 16px; }
 
 p {
   margin: 1em; 
@@ -4144,7 +4144,10 @@ article {
   padding: 70px 0 60px;
   margin: 0; }
   body.page article {
-    padding-bottom: 20px; }
+    padding-bottom: 20px; 
+    margin-left: 10%;
+    margin-right: 10%;
+  }
   article:nth-child(even) {
     background: #fff; }
   article .time {
@@ -5435,8 +5438,8 @@ line-height: .5em;
 }
 
 .entry-content {
-  font-size: 18px;
-  line-height: 1.6em;
+  font-size: 16px;
+  line-height: 1.5em;
 }
 
 pre {
@@ -5588,7 +5591,7 @@ dt {
 	border-left: none;
 	border-right: none;
 	padding: 10px;
-	font-size: 16px;
+	font-size: 14px;
 	font-family: 'Droid Sans Mono', 'Courier New', monospace;
 }
 
@@ -5625,4 +5628,47 @@ p.cc-block {
 
 h4 {
 	font-style: italic;
+}
+
+@media (max-width: 650px) {
+	body {
+		font-size: 12px;
+	}
+	p {
+		margin: 0.5em 0em 0.5em 0em;
+	}
+	ul,ol,table {
+	  margin: 0.5em 0em 0.5em 0em;
+	}
+	figure {
+		margin: 1em 0em 1em 0em;
+	}
+	
+	h1, .h1 {
+	  font-size: 26px; }
+	
+	h2, .h2 {
+	  font-size: 22px; }
+	
+	h3, .h3 {
+	  font-size: 18px; }
+	
+	h4, .h4 {
+	  font-size: 16px; }
+	
+	h5, .h5 {
+	  font-size: 16px; }
+	
+	h6, .h6 {
+	  font-size: 16px; }
+	  
+	.highlight {
+		margin: 1em 0em 1em 0em;
+	}
+	.highlight > pre {
+		font-size: 12px;
+	}
+	.entry-content {
+		font-size: 16px;
+	}
 }
