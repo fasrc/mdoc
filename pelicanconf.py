@@ -68,6 +68,8 @@ INTERLINKS = {
     'rc_site': 'https://rc.fas.harvard.edu/',
     'informatics_site': 'http://informatics.fas.harvard.edu/',
     'rchelp' : 'https://portal.rc.fas.harvard.edu/rcrt/submit_ticket',
+    'lustre' : 'http://wiki.lustre.org/index.php/Main_Page',
+    'rcvpn' : 'https://vpn.rc.fas.harvard.edu',
 }
 
 MENUITEMS = [

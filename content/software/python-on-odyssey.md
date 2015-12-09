@@ -12,7 +12,7 @@ Summary: Using Python on Odyssey with the Anaconda distribution.
 
 At this point you can upgrade or install a package named `PACKAGE` with either `pip install` or the `conda install` command (it's the same whether installing or upgrading):
 
-    :::shell-session
+    :::bash
     $ conda install PACKAGE
 
 The main difference between a `conda install` and a `pip install` is that conda packages may contain pre-compiled binaries built from other languages (e.g. C, C++).  While this can be very handy if the binaries were built with a compatible compiler and libraries, it can be a problem if the authors included files incompatible with the Odyssey system.
@@ -23,7 +23,7 @@ The commands `conda list` and `conda show`, list installed and available package
 
 If you have problems updating a package that is already installed in the Anaconda environment, you might need to remove the package first:
 
-    :::shell-session
+    :::bash
     $ conda remove PACKAGE
 
 In most cases, this will 'unlink' the package from the source distribution.  You can then install a new one, either with `conda` or `pip` install commands.

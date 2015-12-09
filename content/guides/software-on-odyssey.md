@@ -40,14 +40,14 @@ Helmod modules are one of three different types: *Core*, *Comp*, or *MPI*.
 
 *Comp* applications are compiler-dependent and cannot be loaded until the appropriate compiler is loaded.  For example, the blasr application cannot be compiled with the system gcc because it uses advanced C++ constructs. As a result, the compiler module must be loaded first.
 
-    :::shell-session
+    :::bash
     $ module load gcc/4.8.2-fasrc01 blasr/20151013-fasrc01
     
 An attempt to load a new compiler after one has already been loaded will result in an error.
     
 *MPI* applications depend on a specific MPI library module (e.g. openmpi/1.10.0-fasrc01).  Because MPI libraries themselves are compiler-dependent, an MPI application requires the loading of both the compiler and the MPI library modules.  For example:
 
-    :::shell-session
+    :::bash
     $ module load intel/15.0.0-fasrc01 openmpi/1.10.0-fasrc01 abyss/1.9.0-fasrc01 
 
 The instructions for loading modules can be obtained by the search methods described below.
@@ -211,19 +211,19 @@ Anaconda has a concept of *environments* that can be used to manage alternative 
 
 First, load the base environment:
 
-    :::shell-session
+    :::bash
     $ module load python/2.7.6-fasrc01
 
 Then create a new environment by cloning the Anaconda distribution (substitute `ENV_NAME` with whatever name you wish):
 
-    :::shell-session
+    :::bash
     $ conda create -n ENV_NAME --clone="$PYTHON_HOME"
 
 This will create a clone in your home directory under `~/envs/ENV_NAME`.  
 
 Use this environment by running the command:
 
-    :::shell-session
+    :::bash
     $ source activate ENV_NAME
 
 
@@ -231,7 +231,7 @@ If you want to use this environment all the time, add the above line to your `~/
 
 To stop using the custom environment, run:
 
-    :::shell-session
+    :::bash
     $ source deactivate
 
 A Python 3 module is available as well via the Anaconda3 distribution.  The Anaconda system allows you to alter your environment to setup a [specific version of Python](http://conda.pydata.org/docs/py2or3.html#install-a-different-version-of-python) very easily.

@@ -18,7 +18,7 @@ Slurm has a number of valuable features compared to other job management systems
 ## General Slurm documentation is widely available.
 The primary source for documentation on Slurm usage and commands can be found at the [Slurm site](slurm>/documentation.html). If you Google for Slurm questions, you'll often see the Lawrence Livermore pages as the top hits, but these tend to be outdated. A great way to get details on the Slurm commands is the man pages available from the Odyssey cluster. For example, if you type the following command:
 
-    :::shell-session
+    :::bash
     man sbatch
 
 you'll get the manual page for the sbatch command.
@@ -26,7 +26,7 @@ you'll get the manual page for the sbatch command.
 ## Odyssey jobs are generally run from the command line
 Once you've gone through the account setup procedure and [obtained a suitable terminal application]({filename}/access-and-login.html#Use_any_common_terminal_application_for_command_line_access), you can login to the Odyssey system via ssh
 
-    :::shell-session
+    :::bash
     ssh <USERNAME>@odyssey.rc.fas.harvard.edu
 
 where &lt;USERNAME&gt; is the RC login you received from the [account request tool](account>). This is generally not the same as your HUIT machine login and is not your Harvard ID. 
@@ -49,7 +49,7 @@ The Research Computing and Informatics departments have developed an enhanced Li
 
 A `module load` command enables a particular application in the environment, mainly by adding the application to your PATH variable. For example, to enable the currently supported R package:
 
-    :::shell-session
+    :::bash
     module load R/3.2.0-fasrc01
 
 <figure>
@@ -150,7 +150,7 @@ Though Slurm is not as common as SGE or LSF, documentation is readily available.
 
 The main way to run jobs on Odyssey is by submitting a script with the `sbatch` command. The command to submit a job is as simple as:
 
-    :::shell-session
+    :::bash
     sbatch runscript.sh
 
 The commands specified in the runscript.sh file will then be run on the first available compute node that fits the resources requested in the script. `sbatch` returns immediately after submission; commands are not run as foreground processes and won't stop if you disconnect from Odyssey. A typical submission script, in this case using the `hostname` command to get the computer name, will look like this:
@@ -217,12 +217,12 @@ The distinction between `--mem` and `--mem-per-cpu` is important when running mu
 
 Running `squeue` without arguments will list all currently running jobs. It is more common, though to list jobs for a particular user (like yourself) using the `-u` option...
 
-    :::shell-session
+    :::bash
     squeue -u akitzmiller
 
 or for a particular job
 
-    :::shell-session
+    :::bash
     squeue -j 9999999
 
 If you include the `-l` option (for "long" output) you can get useful data, including the running state of the job. 
@@ -242,7 +242,7 @@ The current state of jobs can also be monitored via the [FAS RC/Informatics port
 
 The `sacct` command also provides details on the state of a particular job. An `squeue`-like report on a single job is a simple command.
 
-    :::shell-session
+    :::bash
     sacct -j 9999999
 
 However `sacct` can provide much more detail as it has access to many of the resource accounting fields that Slurm uses. For example, to get a detailed report on the memory and cpu usage for an array job (see below for details about job arrays): 
@@ -285,7 +285,7 @@ Both tools provide information about the job State. This value will typically be
 ## Killing jobs with scancel 
 If for any reason, you need to kill a job that you've submitted, just use the `scancel` command with the job ID.
 
-    :::shell-session
+    :::bash
     scancel 9999999
 
 If you don't keep track of the job ID returned from `sbatch`, you should be able to find it with the `squeue -u` command described above.
@@ -301,12 +301,12 @@ Though batch submission is the best way to take full advantage of the compute po
 
 An interactive job differs from a batch job in two important aspects: 1) the partition to be used is the `interact` partition and, 2) jobs should be initiated with the `srun` command instead of `sbatch`. This command:
 
-    :::shell-session
+    :::bash
     srun -p interact --pty --mem 500 -t 0-06:00 /bin/bash
 
 will start a command line shell (`/bin/bash`) on the interactive queue with 500 MB of RAM for 6 hours; 1 core on 1 node is assumed as these parameters (`-n 1 -N 1`) were left out. When the interactive session starts, you will notice that you are no longer on a login node, but rather one of the compute nodes dedicated to this queue. The `--pty` option allows the session to act like a standard terminal. In a pinch, you can also run an application directly *though this is discouraged due to problems setting up bash environment variables*. After loading a module for MATLAB, you can start the application with the following command:
 
-    :::shell-session
+    :::bash
     srun -p interact --pty --x11=first --mem 4000 -t 0-06:00 matlab
 
 In this case, we've asked for more memory because of the larger MATLAB footprint. The `--x11-first` option allows XWindows to operate between the login and compute nodes. The `interact` partition requires that you actually interact with the session. If you go more than an hour without any kind of input, it will assume that you have left the session and will terminate it. If you have interactive tasks that must stretch over days, you may be able to use the [GNU Screen](/resources/gnu-screen) utility to prevent the termination of a session. 
@@ -401,7 +401,7 @@ MPI (Message Passing Interface) is a standard that supports communication betwee
 As described in the [Helmod documentation]({filename}/software-on-odyssey.html), MPI libraries are a special class of module, called "Comp", that is compiler dependent.  To load an MPI library, load the compiler first.
 
 
-    :::shell-session
+    :::bash
     $ module load intel/15.0.0-fasrc01 openmpi/1.10.0-fasrc01
 
 Once an MPI module is loaded, applications built against that library are made available.  This dynamic loading mechanism prevents conflicts that can arise between compiler versions and MPI library flavors. 
@@ -449,7 +449,7 @@ Slurm allows you to submit a number of "near identical" jobs simultaneously in t
 
 Then launch the batch process using the `--array` option to specify the indexes.
 
-    :::shell-session
+    :::bash
     sbatch --array=1-30 tophat.sh
 
 In the script, two types of substitution variables are available when running job arrays. The first, `%A` and `%a`, represent the job ID and the job array index, respectively. These can be used in the sbatch parameters to generate unique names. The second, `SLURM_ARRAY_TASK_ID`, is a bash environment variable that contains the current array index and can be used in the script itself. In this example, 30 jobs will be submitted each with a different input file and different standard error and standard out files. More detail can be found on the [Slurm job array documentation page](http://www.schedmd.com/Slurmdocs/job_array.html). 

@@ -43,7 +43,7 @@ For Windows computers, you will need to download Putty. (SecureCRT or another te
 
 If you're using a Linux-y terminal like the Mac OSX Terminal tool or a Linux xterm, you'll want to use `scp` for transferring data
 
-    :::shell-session
+    :::bash
     $ scp hg19.chr1.fasta akitzmiller@odyssey:
 
 This will transfer the data into the root of your home directory.
@@ -64,12 +64,12 @@ The most important rule on Odyssey is to avoid performing computations on the lo
 ### Determine what software you'd like to load and run 
 An enhanced module system called Helmod is used on Odyssey to control the run-time environment for individual applications. To find out what modules are available you can either look at the [module list on the RC / Informatics portal](module_list>), or use the `module avail` command. By itself, module avail will print out the entire list of packages. To find a specific tool, use the module spider or module-query command.
 
-    :::shell-session
+    :::bash
     $ module-query MODULENAME
 
 Once you've determined what software you would like to use, load the module:
 
-    :::shell-session
+    :::bash
     $ module load MODULENAME
 
 where MODULENAME is the specific software you want to use. You can use `module unload MODULENAME` to unload a module. To see what modules you have loaded type `module list`. This is very helpful information to provide when you submit help tickets.
@@ -112,7 +112,7 @@ For a simple example that just prints the hostname of a compute host to both sta
 
 Then submit this job script to SLURM
 
-    :::shell-session
+    :::bash
     $ sbatch hostname.slurm
 
 When command scripts are submitted, SLURM looks at the resources you've requested and waits until an acceptable compute node is available on which to run it. Once the resources are available, it runs the script as a background process (i.e. you don't need to keep your terminal open while it is running), returning the output and error streams to the locations designated by the script.
@@ -130,7 +130,7 @@ You can monitor the progress of your job using the `squeue -j JOBID` command, wh
 
 If you need to terminate a job, the `scancel` command can be used (JOBID is the number returned when the job is submitted).
 
-    :::shell-session
+    :::bash
     $ scancel JOBID
 
 SLURM-managed resources are divided into _partitions_ (known as queues in other batch processing systems). Normally, you will be using the `general` or `serial_requeue` partitions, but there are others for interactive jobs (see below), large memory jobs, etc.
@@ -146,14 +146,14 @@ Batch jobs are great for long-lasting computationally intensive data processing.
 
 You can start an interactive session using a specific flavor of the `srun` command.
 
-    :::shell-session
+    :::bash
     $ srun -p interact --pty --mem 500 -t 0-6:00 /bin/bash
 
 `srun` is like `sbatch`, but it runs synchronously (i.e. it does not return until the job is finished). The example starts a job on the "interact" partition, with pseudo-terminal mode on (`--pty`), an allocation of 500 MB RAM (`--mem 500`), and for 6 hours (`-t` in `D-HH:MM` format). It also assumes one core on one node. The final argument is the command that you want to run. In this case you'll just get a shell prompt on a compute host. Now you can run any normal Linux commands without taking up resources on a login node. Make sure you choose a reasonable amount of memory (`--mem`) for your session.
 
 You can also launch graphical tools like MATLAB through an `srun` interactive job (as long as you've connected to Odyssey with X11-forwarding enabled: `ssh -X ...`):
 
-    :::shell-session
+    :::bash
     $ srun -p interact --mem 4000 --pty --x11=first -t 0-6:00 /bin/bash 
     $ module load matlab/R2015a-fasrc01
     $ matlab
@@ -171,13 +171,13 @@ In SLURM you must declare how much memory you are using for your job using the `
 
 You can view the runtime and memory usage for a past job with
 
-    :::shell-session
+    :::bash
     $ sacct -j JOBID --format=JobID,JobName,ReqMem,MaxRSS,Elapsed 
 
 
 where JOBID is the numeric job ID of a past job:
 
-    :::shell-session
+    :::bash
     $ sacct -j 51868151 --format=JobID,JobName,ReqMem,MaxRSS,Elapsed 
     
             JobID    JobName     ReqMem     MaxRSS    Elapsed 

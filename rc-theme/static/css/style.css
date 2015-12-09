@@ -100,7 +100,9 @@ svg:not(:root) {
   overflow: hidden; }
 
 figure {
-  margin: 1em 40px; }
+	width: 100%;
+    margin: 1em 40px; 
+}
 
 hr {
   -moz-box-sizing: content-box;

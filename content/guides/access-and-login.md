@@ -65,7 +65,7 @@ Odyssey resources must be accessed through a virtual private network software (V
 
 If you're using a Mac, the built-in Terminal application (in Applications->Utilities) is very good, though there are replacements available (e.g. [iTerm2](http://www.iterm2.com/#/section/home)). After starting a Terminal session, use the `ssh` command to login to Odyssey.
 
-    :::shell-session
+    :::bash
     $ ssh akitzmiller@odyssey.rc.fas.harvard.edu
 
 _To avoid login issues, always supply your username in the ssh connection as above, since omitting this will cause your local login name at your terminal to be passed to the login nodes._ 
@@ -103,7 +103,7 @@ Many graphical applications can be run from Odyssey with a combination of termin
 
 After installation, run the X Windows server application, and then connect with X11 forwarding enabled. From an X window on Mac or Linux, add the -Y option to the ssh command. Example:
 
-    :::shell-session
+    :::bash
     $ ssh -Y akitzmiller@odyssey.rc.fas.harvard.edu
 
 For PCs using Putty, make sure and check the X11 forwarding box under Connection -> SSH -> X11 
@@ -117,7 +117,7 @@ For PCs using Putty, make sure and check the X11 forwarding box under Connection
 </figure>
 
 
-After you've connected, to run a graphical application ([Mathematica requires additional setup](https://rc.fas.harvard.edu/resources/documentation/software/mathematica-gui-fonts/)), you'll need to run an X11 friendly job in the interactive partition (see [Running Jobs](/resources/running-jobs)).
+After you've connected, to run a graphical application ([Mathematica requires additional setup](https://rc.fas.harvard.edu/resources/documentation/software/mathematica-gui-fonts/)), you'll need to run an X11 friendly job in the interactive partition (see [Running Jobs](running-jobs.html).
 
 ### Consider an NX remote desktop for graphical applications like Matlab and RStudio.
 
@@ -262,7 +262,7 @@ These screen shots show NX on a Mac. PC software is very similar and the same ch
     </figure>
 
 1.  ***Use an interactive session***<br/>
-    When you've connected to holynx01 or rcnx01, you should treat them like any other login node.  ***Software should not be run directly on NX login nodes***.  Use srun [as described in the interactive session section of the Running Jobs page]() to setup an interactive session.  For graphical work, don't forget the `--x11=first` srun option.
+    When you've connected to holynx01 or rcnx01, you should treat them like any other login node.  ***Software should not be run directly on NX login nodes***.  Use srun [as described in the interactive session section of the Running Jobs page](running-jobs.html#interactive-jobs-and-srun) to setup an interactive session.  For graphical work, don't forget the `--x11=first` srun option.
     <figure>
     		<a class="img" href="/docs/images/nx-interactive-session.png">
     			<img class="img-responsive" src="/docs/images/nx-interactive-session.png"></img>
