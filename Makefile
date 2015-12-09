@@ -101,8 +101,8 @@ publish:
 	find $(OUTPUTDIR) -type d | xargs chmod a+x
 	find $(OUTPUTDIR) -type f | xargs chmod 664
 	git add -v -A . 
-	git commit
-	git push
+	-git commit
+	-git push
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
