@@ -59,7 +59,7 @@ Odyssey is a massive system of shared resources. While much effort is made to en
 
 The most important rule on Odyssey is to avoid performing computations on the login nodes. Once you've logged in, you must either submit a batch processing script or start an interactive session (see below). Any significant processing (high memory requirements, long running time, etc.) that is attempted on the login nodes will be killed.
 
-*See the full list of [Odyssey customs and responsibilities](responsibilities.html).*
+*See the full list of [Odyssey customs and responsibilities](odyssey-customs-and-responsibilities.html).*
 
 ### Determine what software you'd like to load and run 
 An enhanced module system called Helmod is used on Odyssey to control the run-time environment for individual applications. To find out what modules are available you can either look at the [module list on the RC / Informatics portal](module_list>), or use the `module avail` command. By itself, module avail will print out the entire list of packages. To find a specific tool, use the module spider or module-query command.
@@ -135,7 +135,7 @@ If you need to terminate a job, the `scancel` command can be used (JOBID is the 
 
 SLURM-managed resources are divided into _partitions_ (known as queues in other batch processing systems). Normally, you will be using the `general` or `serial_requeue` partitions, but there are others for interactive jobs (see below), large memory jobs, etc.
 
-*For more information on the partitions in Odyssey, please see the [SLURM partitions](running-jobs.html#SLURM_partitions) page.*
+*For more information on the partitions in Odyssey, please see the [SLURM partitions](running-jobs.html#slurm-partitions) page.*
 
 *For more information and running batch jobs in Odyssey, including MPI code, please see the [Running Jobs](running-jobs.html) page.*
 
