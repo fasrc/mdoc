@@ -38,8 +38,8 @@ All OpenAuth tokens are software-based, and you will choose whether to use a sma
 
 
 <figure>
-	<a class="img" href="/docs/images/OpenAuth-verification-code.png">
-    		<img class="img-responsive" src="/docs/images/OpenAuth-verification-code.png"></img>
+	<a class="img" href="/docs/images/odyssey-terminal-login.png">
+    		<img class="img-responsive" src="/docs/images/odyssey-terminal-login.png"></img>
 	</a>
     <figcaption>Logging in to Odyssey using two-factor authentication. The OpenAuth application (upper right corner) displays the value to be used for the Verification code prompt.</figcaption>
 </figure>

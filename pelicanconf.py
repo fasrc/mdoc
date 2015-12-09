@@ -4,7 +4,8 @@ from __future__ import unicode_literals
 import os
 
 PLUGIN_PATHS = ['../pelican-plugins/']
-PLUGINS = ['tag_cloud.tag_cloud','interlinks']
+PLUGINS = ['tag_cloud.tag_cloud','interlinks','extract_toc']
+MD_EXTENSIONS = (['toc(permalink=true)','codehilite'])
 
 AUTHOR = u'Aaron Kitzmiller'
 SITENAME = u'Harvard FAS Research Computing'
