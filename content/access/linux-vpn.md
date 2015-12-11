@@ -55,7 +55,8 @@ If you don't use NetworkManager, need a different version of the software, or ot
     $ export SW=/opt
     $ export SRC=$SW/src
     $ cd $SRC
-    $ umask 022wget --no-clobber http://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.4.1.tar.gz
+    $ umask 022
+    $ wget --no-clobber http://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.4.1.tar.gz
     $ tar xvf $(basename $_)
     $ export APP=$(basename $_ .tar.gz)
     $ cd $APP
