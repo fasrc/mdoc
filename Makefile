@@ -100,6 +100,7 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	find $(OUTPUTDIR) -type d | xargs chmod a+x
 	find $(OUTPUTDIR) -type f | xargs chmod 664
+	git pull
 	git add -v -A . 
 	-git commit
 	-git push
