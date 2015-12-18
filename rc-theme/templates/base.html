@@ -89,6 +89,14 @@ img.wp-smiley, img.emoji {
 <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
 <script type="text/javascript" src="{{ SITEURL }}/theme/js/ajk.js"></script>
 <script type="text/javascript" src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
+
+{% if 'tipue_search' in PLUGINS %}
+<link href="{{ SITEURL }}/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_content.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+{% endif %}
+
 <!-- / Google Analytics by Yoast -->
 <style type='text/css'>
 img#wpstats {
@@ -255,12 +263,11 @@ h1.entry-title {
 	href="https://rc.fas.harvard.edu/wp-content/uploads/2014/11/rcswoosh512-545d0965_site_icon-200x200.png">
 <meta name="msapplication-TileImage"
 	content="https://rc.fas.harvard.edu/wp-content/uploads/2014/11/rcswoosh512-545d0965_site_icon.png">
+{% block scripts %} {% endblock %}	
 </head>
 <body class="home page page-id-89 page-template-default boxed">
 
 	<div id="page">
-
-
 
 		<header class="navbar-inverse navbar navbar-fixed" role="navigation">
 
@@ -296,7 +303,7 @@ h1.entry-title {
 				<ul class="nav navbar-nav navbar-right">
 					{% if 'tipue_search' in PLUGINS %}
 					<li><span>
-							<form class="navbar-search" action="/search">
+							<form class="navbar-search" action="search.html">
 								<input type="text" class="search-query" placeholder="Search"
 									name="q" id="tipue_search_input" required>
 							</form>
