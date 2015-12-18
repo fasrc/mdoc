@@ -76,5 +76,5 @@ MENUITEMS = [
     ('Docs @ RC',SITEURL),
 ]
 
-DIRECT_TEMPLATES = ['search']
+DIRECT_TEMPLATES = ['search','index']
 
