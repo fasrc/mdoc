@@ -4,7 +4,12 @@ from __future__ import unicode_literals
 import os
 
 PLUGIN_PATHS = ['../pelican-plugins/']
-PLUGINS = ['tag_cloud.tag_cloud','interlinks','extract_toc','tipue_search']
+PLUGINS = [
+           'tag_cloud.tag_cloud',
+           'interlinks',
+           'pelican-toc',
+           'tipue_search',
+           ]
 MD_EXTENSIONS = (['toc(permalink=true)','codehilite'])
 
 AUTHOR = u'Aaron Kitzmiller'

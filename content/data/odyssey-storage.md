@@ -1,6 +1,6 @@
 Title: Odyssey Storage
 Date: 2015-11-10
-Category: Data and Storage
+Category: Data
 Tags: Odyssey, Storage
 Summary: Details about the various types of storage and file systems on Odyssey.
 
