@@ -39,13 +39,22 @@ Once you have logged in to the Odyssey system, you will be on one of a handful o
 Simple file copies, light text processing or editing, etc. are fine, but you should not run large graphical applications like Matlab, or computationally intensive command line tools.c
 A culling program runs on these nodes that will kill any application that exceeds memory and computational limits.
 
-Entry nodes for NoMachine remote desktops (see below) like holynx01 are also to be treated like login nodes.
+Entry nodes for NoMachine remote desktops (see below) like `holynx01` are also to be treated like login nodes.
 
 
 ## An enhanced module system called Helmod is used for enabling applications 
 Because of the diversity of investigations currently supported by FAS, thousands of applications and libraries are supported on the Odyssey cluster. Technically, it is impossible to include all of these tools in every user's environment. 
 
 The Research Computing and Informatics departments have developed an enhanced Linux [module system](http://modules.sourceforge.net), [Helmod]({filename}/helmod.html), based on the hierarchical [Lmod module system from TACC](https://www.tacc.utexas.edu/research-development/tacc-projects/lmod).  Helmod prevents enables applications much the same way as Linux modules, but also prevents multiple versions of the same tool from being loaded at the same time and separates tools that use particular compilers or MPI libraries entirely.
+
+**Please note that we are deprecating the older module system, which is based on categories (e.g. `centos6` or `hpc`). We strongly advise you to switch over to the Helmod system ASAP and contact us via the [RC portal](https://portal.rc.fas.harvard.edu/rcrt/submit_ticket) if any software needs porting.**
+
+To start using the Helmod system, issue the command:
+
+    :::bash
+    source new-modules.sh
+
+You can also add this statement to your `.bashrc` login file so that you'll use the new system by default.
 
 A `module load` command enables a particular application in the environment, mainly by adding the application to your PATH variable. For example, to enable the currently supported R package:
 
@@ -61,6 +70,8 @@ A `module load` command enables a particular application in the environment, mai
 
 
 Loading more complex modules can affect a number of environment variables including `PYTHONPATH`, `LD_LIBRARY_PATH`, `PERL5LIB`, etc. Modules may also load dependencies. 
+
+To determine what has been loaded in your environment, the `module list` command will print all loaded modules.
 
 The `module purge` command will remove all currently loaded modules. This is particularly useful if you have to run incompatible software (e.g. python 2.x or python 3.x). The `module unload` command will remove a specific module. 
 
